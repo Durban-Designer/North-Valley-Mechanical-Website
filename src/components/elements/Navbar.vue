@@ -109,6 +109,7 @@ export default {
 }
 .main {
   width: 100%;
+
 }
 .nv {
   margin-top: 20px;
@@ -140,7 +141,7 @@ export default {
 }
 
 .navpaneAnimation {
-  animation: navpaneAnimation .4s steps(9);
+  animation: navpaneAnimation .3s steps(9);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   grid-column-start: 2;
@@ -157,16 +158,10 @@ export default {
 }
 
 .navpaneAnimationExit {
-  animation: navpaneAnimationReverse .5s steps(9);
+  animation: navpaneAnimationReverse .3s steps(9);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  grid-column: 3;
-  z-index: 10;
-  width: 100%;
-  height: 0px;
-  margin-top: 40px;
-  border-radius: 12px;
-  color: #fff;
+
 }
 
 .Home {
@@ -207,28 +202,15 @@ export default {
   font-size: 2.5em;
   font-weight: 400;
 }
-@keyframes activateNav {
-  from {top: -2000px;}
-  to {top: 90px;}
+@keyframes navpaneAnimation {
+
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@keyframes activateNavtiles {
-  0% {margin: 10px 0;}
-  40% {margin: 22px 0;}
-  80% {margin: 12px 0;}
-  100% {margin: 12px 0;}
-}
-
-@keyframes deactivateNav {
-  0% {top: 80px;}
-  99% {top: 2000px;}
-  100% {display: none;}
-}
-
-@keyframes deactivateNavtiles {
-  0% {margin: 12px 0;}
-  50% {margin: 18px 0;}
-  100% {margin: 26px 0;}
+@keyframes navpaneAnimationReverse {
+  0% { opacity: 1; }
+  100% { opacity: 0;}
 }
 
 @keyframes navButtonAnimation {
@@ -239,16 +221,6 @@ export default {
   0% {background-position: -1440px;}
   100% {background-position: 0px;}
 }
-
-
-
-.navtileAnimationExit {
-  animation-name: deactivateNavtiles;
-  animation-duration: 1.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
 .navButtonAnimation {
   animation: navButtonAnimation .35s steps(18);
   animation-iteration-count: 1;

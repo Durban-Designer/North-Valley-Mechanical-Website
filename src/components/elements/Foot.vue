@@ -1,6 +1,6 @@
 <template>
   <div class="Footer">
-    <h1>North Valley Mechanical&#169;</h1>
+    <h1>&#169;Copyright 2015 North Valley Mechanical. All Rights Reserved</h1>
 
   </div>
 </template>
@@ -15,7 +15,6 @@ export default {
 </script>
 
 <style scoped lang='less'>
-@base-font:'Pathway Gothic One', sans-serif;
 
 .Footer {
     position: fixed;
@@ -32,9 +31,8 @@ h1 {
   bottom: 0;
   z-index: 13;
   position: fixed;
-  font-family: @base-font;
   font-weight: lighter;
-  font-size: 1em;
+  font-size: .5em;
   color: #fff;
   text-align: center;
   line-height: 0;
