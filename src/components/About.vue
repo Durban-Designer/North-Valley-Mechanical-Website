@@ -1,12 +1,12 @@
 <template>
   <div class="main">
-    <h1>Home</h1>
+    <h1>About</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: '',
   data () {
     return {}
   }
@@ -19,7 +19,6 @@ export default {
   width: 100%;
   margin-top: 120px;
 }
-
 @media (min-width: 700px) {
 }
 </style>

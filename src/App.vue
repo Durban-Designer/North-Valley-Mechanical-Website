@@ -1,15 +1,35 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
-    <router-view />
+    <navbar></navbar>
+    <transition name="fade">
+      <router-view/>
+    </transition>
+    <foot></foot>
   </div>
 </template>
 
 <script>
-/*
- * Root component
- */
-export default {}
+import Navbar from './components/elements/Navbar'
+import Foot from './components/elements/Foot'
+export default {
+  name: 'app',
+  components: {
+    'navbar': Navbar,
+    'foot': Foot
+  }
+}
 </script>
 
-<style></style>
+<style scoped lang="less">
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .25s ease;
+  transition: all .25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+  transform: translateY(20px);
+}
+</style>
