@@ -113,6 +113,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmgrey: #dae5ed;
+@nvmblue: #005389;
+@nvmred: #b20938;
 .navpane {
   display: none;
   overflow: hidden;
