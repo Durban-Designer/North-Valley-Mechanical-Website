@@ -27,7 +27,7 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  height: 160px;
+  height: 165px;
 
 }
 h1 {

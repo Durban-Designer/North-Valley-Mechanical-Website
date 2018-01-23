@@ -136,7 +136,7 @@ export default {
 .navbar {
   width: 100%;
   height: 100px;
-  background: #005389;
+  background: linear-gradient(#005DA6, #014271);
   position: fixed;
   top: 0;
   left: 0;

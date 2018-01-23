@@ -24,7 +24,7 @@ export default {
     height: 7%;
     color: white;
     text-align: center;
-    background:#005389;
+    background: linear-gradient(#005DA6, #014271);
 }
 
 h1 {

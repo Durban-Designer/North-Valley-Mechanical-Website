@@ -28,7 +28,7 @@ export default {
   text-align:center;
 }
 h1 {
-  
+
 }
 .registerlink {
   font-size: 1em;
@@ -46,6 +46,7 @@ button {
 input {
   border: 1px solid black;
   margin-top: 5px;
+  height: 30px;
 }
 @media (min-width: 700px) {
 }
