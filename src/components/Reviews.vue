@@ -7,6 +7,7 @@
     <p>“Thank you for having the type of professional people that I know I can call any time and get the kind of service I had anticipated.”- B. Klatt</p>
     <p>“You really have a wonderful staff. The guys today were very professional, friendly and informative.” – J. Thomas</p>
     <p>“Thank you! My service was completed yesterday. Years of neglect by a previous company were rectified by your technician Jim Rankin. Jim was terrific. He explained the problems and made sure he corrected them. I will recommend you to everyone I know. Thanks again.” – M. Smithers</p>
+    <button class="leavereview" v-on:click="$router.push('/leavereview')">Leave a Review</button>
   </div>
 </template>
 
@@ -41,6 +42,14 @@ p {
   font-size: 1.1em;
   margin-bottom: 30px;
   font-style: italic;
+}
+button {
+  width: 90%;
+  font-size: 1.5em;
+  background-color: @nvmred;
+  color: #fff;
+  border: none;
+  margin-left: 5%;
 }
 @media (min-width: 700px) {
 }

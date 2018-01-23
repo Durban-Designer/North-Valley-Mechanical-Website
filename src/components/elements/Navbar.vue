@@ -7,7 +7,7 @@
         <button v-bind:class="ServicesLogic" v-on:click="navToggle(); $router.push('/services')">Services</button>
         <button v-bind:class="ReviewsLogic" v-on:click="navToggle(); $router.push('/Reviews')">Reviews</button>
         <button v-bind:class="ContactLogic" v-on:click="navToggle(); $router.push('/contact')">Contact</button>
-        <button v-bind:class="LoginLogic" v-on:click="navToggle(); $router.push('/Login')">Login</button>
+        <button v-bind:class="LoginLogic" v-on:click="navToggle(); $router.push('/Login')">Log In</button>
     </div>
   </div>
 </div>
@@ -162,12 +162,12 @@ export default {
   z-index: 10;
   width: 100%;
   height: 400px;
-  margin-top: 15px;
+  margin-top: 1px;
   background: #b20938;
   color: #fff;
-  outline: solid 2px ;
+  outline: solid 1px ;
   outline-color: #fff;
-  outline-offset: -6px;
+  box-shadow: 0px 1px 1px 2px #fff;
 }
 
 .navpaneAnimationExit {
@@ -184,7 +184,7 @@ export default {
   color: #fff;
   font-size: 2.5em;
   width: 100%;
-  font-weight: 400;
+  font-weight: normal;
 }
 .Reviews {
   background-color: transparent;
@@ -193,7 +193,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Contact {
@@ -203,7 +203,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Services {
@@ -213,7 +213,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 .Login {
   background-color: transparent;
@@ -222,7 +222,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 @keyframes navpaneAnimation {
 
