@@ -18,6 +18,7 @@
   <div class="Message" v-on:click="modal='mess'">Send a Message</div>
   <div class="Quote" v-on:click="modal='qte'">Request a Quote</div>
 </div>
+  <h2>480-538-9184</h2>
   </div>
 </template>
 
@@ -37,6 +38,12 @@ export default {
   height: 500px;
   width: 100%;
   margin-top: 120px;
+}
+h2 {
+  color: #005da6;
+  margin-top: 200px;
+  width: 100%;
+  text-align: center;
 }
 button{
   background: #b20938;
