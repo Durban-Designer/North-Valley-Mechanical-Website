@@ -93,6 +93,7 @@ button {
 input {
   border: 1px solid black;
   margin-top: 5px;
+  height: 30px;
 }
 @media (min-width: 700px) {
 }

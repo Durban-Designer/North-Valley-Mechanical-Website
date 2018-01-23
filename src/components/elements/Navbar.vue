@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmgrey: #dae5ed;
+@nvmblue: #005389;
+@nvmred: #b20938;
 .navpane {
   display: none;
   overflow: hidden;
@@ -91,7 +94,7 @@ export default {
 .navbar {
   width: 100%;
   height: 100px;
-  background: #005389;
+  background: linear-gradient(#005DA6, #014271);
   position: fixed;
   top: 0;
   left: 0;
@@ -114,12 +117,12 @@ export default {
   z-index: 10;
   width: 100%;
   height: 400px;
-  margin-top: 15px;
+  margin-top: 1px;
   background: #b20938;
   color: #fff;
-  outline: solid 2px ;
+  outline: solid 1px ;
   outline-color: #fff;
-  outline-offset: -6px;
+  box-shadow: 0px 1px 1px 2px #fff;
 }
 
 .navpaneAnimationExit {
@@ -150,7 +153,7 @@ export default {
   color: #fff;
   font-size: 2.5em;
   width: 100%;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Reviews {
@@ -160,7 +163,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Contact {
@@ -170,7 +173,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Services {
@@ -180,7 +183,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Login {
@@ -190,7 +193,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 @keyframes navpaneAnimation {
