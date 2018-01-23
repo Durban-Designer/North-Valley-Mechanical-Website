@@ -3,10 +3,11 @@
     <div class="navbar">
       <div v-bind:class="nvLogic" v-on:click="navToggle"></div>
       <div v-bind:class="navpaneLogic">
-        <button v-bind:class="HomeLogic" v-on:click="navToggle(); $router.push('/')">HOME</button>
-        <button v-bind:class="AboutLogic" v-on:click="navToggle(); $router.push('/about')">ABOUT</button>
-        <button v-bind:class="ServicesLogic" v-on:click="navToggle(); $router.push('/services')">SERVICES</button>
-        <button v-bind:class="ContactLogic" v-on:click="navToggle(); $router.push('/contact')">CONTACT</button>
+        <button v-bind:class="HomeLogic" v-on:click="navToggle(); $router.push('/')">Home</button>
+        <button v-bind:class="ServicesLogic" v-on:click="navToggle(); $router.push('/services')">Services</button>
+        <button v-bind:class="ReviewsLogic" v-on:click="navToggle(); $router.push('/Reviews')">Reviews</button>
+        <button v-bind:class="ContactLogic" v-on:click="navToggle(); $router.push('/contact')">Contact</button>
+        <button v-bind:class="LoginLogic" v-on:click="navToggle(); $router.push('/Login')">Login</button>
     </div>
   </div>
 </div>
@@ -36,6 +37,9 @@ export default {
       }
       else if (vue.show === 3) {
         vue.show = 4
+      }
+      else if (vue.show === 4) {
+        vue.show = 5
       }
     }
     setInterval(toggleShow, 4000)
@@ -73,9 +77,15 @@ export default {
         hidden: !this.isToggled && !this.first
       }
     },
-    AboutLogic: function () {
+    ReviewsLogic: function () {
       return {
-        About: this.isToggled || this.first,
+        Reviews: this.isToggled || this.first,
+        hidden: !this.isToggled && !this.first
+      }
+    },
+    LoginLogic: function () {
+      return {
+        Login: this.isToggled || this.first,
         hidden: !this.isToggled && !this.first
       }
     }
@@ -173,7 +183,7 @@ export default {
   width: 100%;
   font-weight: 400;
 }
-.About {
+.Reviews {
   background-color: transparent;
   width: 100%;
   background-color: transparent;
@@ -194,6 +204,15 @@ export default {
 }
 
 .Services {
+  background-color: transparent;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 400;
+}
+.Login {
   background-color: transparent;
   width: 100%;
   background-color: transparent;
