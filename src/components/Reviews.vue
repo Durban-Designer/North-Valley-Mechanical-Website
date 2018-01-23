@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'Reviews',
+  props: ['logged', 'user'],
   data () {
     return {}
   }

@@ -2,7 +2,7 @@
   <div class="main">
     <h1>Log-In</h1>
     <div class="loginBox">
-      <input class="email" placeholder="Email" v-model="email"></input>
+      <input class="email" placeholder="Email" v-model="email" type="email"></input>
       <input class="password" placeholder="Password" v-model="password" type="password" v-on:keypress.enter="login"></input>
       <h3 class="logged">Stay logged In?<input type="checkbox" v-model="stayLogged"></input></h3>
       <button class="login" v-on:click="login">Submit</button>
@@ -12,10 +12,57 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Login',
+  props: ['logged'],
   data () {
-    return {}
+    return {
+      email: '',
+      password: '',
+      stayLogged: false,
+      user: {
+        token: '',
+        id: '',
+        role: ''
+      }
+    }
+  },
+  created () {
+    if (this.logged === true) {
+      this.$router.push('/account')
+    }
+  },
+  methods: {
+    login () {
+      let vue = this
+      axios.post('http://54.219.138.159:81/users/login', {
+        email: vue.email.toLowerCase(),
+        password: vue.password
+      })
+        .then(response => {
+          if (response.status !== 401) {
+            vue.user.token = response.data.token
+            vue.user.id = response.data.userId
+            vue.user.role = response.data.role
+            if (vue.stayLogged === true) {
+              localStorage.setItem('token', response.data.token)
+              localStorage.setItem('userId', response.data.userId)
+              localStorage.setItem('role', response.data.role)
+            }
+            else {
+              localStorage.removeItem('token')
+              localStorage.removeItem('userId')
+              localStorage.removeItem('role')
+            }
+            vue.$emit('login', vue.user)
+          }
+        })
+        .catch(response => {
+          console.log(response)
+          this.wrong = true
+        })
+    }
   }
 }
 </script>
@@ -28,7 +75,7 @@ export default {
   text-align:center;
 }
 h1 {
-  
+
 }
 .registerlink {
   font-size: 1em;

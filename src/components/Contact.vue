@@ -24,6 +24,7 @@
 <script>
 export default {
   name: 'Contact',
+  props: ['logged', 'user'],
   data () {
     return {
       modal: ''

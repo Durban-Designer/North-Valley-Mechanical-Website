@@ -10,6 +10,7 @@
 <script>
 export default {
   name: 'home',
+  props: ['logged', 'user'],
   data () {
     return {}
   }

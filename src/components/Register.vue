@@ -8,6 +8,7 @@
 <script>
 export default {
   name: 'Register',
+  props: ['logged', 'user'],
   data () {
     return {}
   }

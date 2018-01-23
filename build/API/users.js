@@ -43,7 +43,7 @@ router.post("/login", (req, res) => {
         if (isMatch === true) {
           var payload = {"id": users.id};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
-          res.json({userId: users.id, token: token, admin: users.admin, employee: users.employee});
+          res.json({userId: users.id, token: token, role: users.role});
         } else {
           res.status(401).send(false);
         }
@@ -74,7 +74,7 @@ router.post("/", (req,res) => {
       User.findOne({"email": req.body.email}, function (err, users) {
         var payload = {"id": users.id};
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
-        res.status(201).json({userId: payload.id, token: token});
+        res.status(201).json({userId: payload.id, token: token, role: users.role});
       })
     }
   })

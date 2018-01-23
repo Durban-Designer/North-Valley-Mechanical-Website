@@ -7,6 +7,7 @@
 <script>
 export default {
   name: '',
+  props: ['logged', 'user'],
   data () {
     return {}
   }

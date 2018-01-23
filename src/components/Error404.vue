@@ -15,5 +15,6 @@ export default {
 
 <style scoped lang="less">
 .main {
+  margin-top: 120px;
 }
 </style>
