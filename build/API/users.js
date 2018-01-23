@@ -11,7 +11,7 @@ var mongoose = require("mongoose");
 var User = mongoose.model("User");
 var bcrypt = require('bcryptjs');
 var ExtractJwt = passportJWT.ExtractJwt;
-var JwtStrategy = passportJWT.Strategy; 
+var JwtStrategy = passportJWT.Strategy;
 
 var jwtOptions = {}
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("JWT");
@@ -58,9 +58,13 @@ router.post("/", (req,res) => {
   var newUser = new User({
   email: req.body.email,
   password: req.body.password,
-  name: req.body.name,
-  admin: req.body.admin,
-  employee: req.body.employee
+  role: req.body.role,
+  firstName: req.body.firstName,
+  middleName: req.body.middleName,
+  lastName: req.body.lastName,
+  phone: req.body.phone,
+  address1: req.body.address1,
+  address2: req.body.address2
   })
 
   newUser.save((err, result) => {
@@ -85,7 +89,7 @@ router.get("/all/:id", passport.authenticate('jwt', { session: false }),(req, re
       User.findOne({"_id": userid},function (err, user) {
         if (err) {
           res.send(err);
-        } else if (user.admin === true) {
+        } else if (user.role === 'employee') {
           res.send(users);
         } else {
           res.status(401).send('Unauthorized')
@@ -115,9 +119,13 @@ router.put("/:id", passport.authenticate('jwt', { session: false }), (req, res) 
         var user = user[0];
         user.email = req.body.email || user.email;
         user.password = req.body.password || user.password;
-        user.name = req.body.name || user.name;
-        user.admin = req.body.admin || user.admin;
-        user.employee = req.body.employee || user.employee;
+        user.role = req.body.role || user.role;
+        user.firstName = req.body.firstName || user.firstName;
+        user.middleName = req.body.middleName || user.middleName;
+        user.lastName = req.body.lastName || user.lastName;
+        user.phone = req.body.phone || user.phone;
+        user.address1 = req.body.address1 || user.address1;
+        user.address2 = req.body.address2 || user.address2;
 
         user.save(function (err, user) {
             if (err) {

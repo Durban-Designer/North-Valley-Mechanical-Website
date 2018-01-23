@@ -12,7 +12,7 @@ var messages = require("./messages.js");
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://admin:123@ds237947.mlab.com:37947/screen-art", {
+mongoose.connect("mongodb://admin:123@ds111618.mlab.com:11618/nvm-1", {
   useMongoClient: true
 }, function (error) {
   console.log(error);

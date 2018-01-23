@@ -11,20 +11,26 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  name: {
+  role: {
     type: String,
     required: true
   },
-  admin: {
-    type: Boolean,
-    required: false,
-    default: false
+  firstName: {
+    type: String,
+    required: true
   },
-  employee: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
+  middleName: String,
+  lastName: {
+    type: String,
+    required: true
+  },
+  phone: String,
+  address1: {
+    type: String,
+    required: true
+  },
+  address2: String
+
 })
 
 UserSchema.pre('save', function(next) {
