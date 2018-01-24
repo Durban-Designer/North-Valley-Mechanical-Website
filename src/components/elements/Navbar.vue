@@ -7,7 +7,8 @@
         <button class="Services" v-on:click="navToggle(); $router.push('/Services')" v-if="!app">Services</button>
         <button class="Reviews" v-on:click="navToggle(); $router.push('/Reviews')">Reviews</button>
         <button class="Contact" v-on:click="navToggle(); $router.push('/Contact')">Contact</button>
-        <button class="Services" v-on:click="navToggle(); $router.push('/Specials')" v-if="app">Specials</button>
+        <button class="Services" v-on:click="navToggle(); $router.push('/Specials')" v-if="app && (user.role !== 'employee')">Specials</button>
+        <button class="Login" v-on:click="navToggle(); $router.push('/Messaging')" v-if="logged && app && (user.role === 'employee')">Messaging</button>
         <button class="Login" v-on:click="navToggle(); $router.push('/Login')" v-if="!logged">Login</button>
         <button class="Login" v-on:click="navToggle(); $router.push('/Account')" v-if="logged">Account</button>
         <button class="Login" v-on:click="navToggle(); $emit('logout')" v-if="logged && app">Logout</button>

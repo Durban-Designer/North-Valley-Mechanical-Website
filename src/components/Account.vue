@@ -7,6 +7,7 @@
       <h2 class="email">Email: {{activeUser.email}}</h2>
       <h2 class="role">I am a {{activeUser.role}}</h2>
       <button class="accountEditButton" v-on:click="modal='edit'">Edit Account</button>
+      <button class="passwordEditButton" v-on:click="modal='pass'">Update Password</button>
       <button class="back" v-on:click="modal=''">Back</button>
     </div>
     <div class="accountEdit" v-else-if="modal==='edit'">
@@ -25,6 +26,13 @@
       </select>
       <button class="submitEdit" v-on:click="updateUser">Submit</button>
       <button class="back" v-on:click="modal=''">Back</button>
+    </div>
+    <div class="updatePass" v-else-if="modal==='pass'">
+      <input class="passwordEdit" v-model="activeUser.password" placeholder="********" v-if="!showPass" type="password">
+      <input class="passwordEdit" v-model="activeUser.password" placeholder="********" v-if="showPass">
+      <button class="togglePass" v-on:click="showPass = !showPass" v-if="!showPass">Show Password</button>
+      <button class="togglePass" v-on:click="showPass = !showPass" v-if="showPass">Hide Password</button>
+      <button class="submitUpdatePass" v-on:click="updatePass">Submit</button>
     </div>
     <div class="registerEmployee" v-else-if="modal==='register'">
       <input class="firstNameRegister" v-model="activeUser.firstName" placeholder="First Name"></input>
@@ -108,6 +116,18 @@ export default {
           console.log(error)
         })
     },
+    updatePass () {
+      let vue = this
+      axios.put('http://54.219.138.159:81/users/' + vue.user.id, {
+        password: vue.activeUser.password
+      }, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
+        .then(function (user) {
+          vue.modal = 'success'
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
     populateActiveUser () {
       let vue = this
       axios.get('http://54.219.138.159:81/users/' + vue.user.id, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
@@ -127,7 +147,7 @@ export default {
     },
     registerUser () {
       let vue = this
-      axios.post('http://13.57.57.81:81/users', {
+      axios.post('http://54.219.138.159:81/users', {
         email: vue.activeUser.email,
         password: vue.activeUser.password,
         role: 'employee',
