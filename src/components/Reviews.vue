@@ -45,7 +45,7 @@ export default {
   @nvmred: #b20938;
   @nvmlightred: #e21b3c;
   .main {
-    height: 2000px;
+    height: 1400px;
     width: 100%;
     margin-top: 120px;
   }

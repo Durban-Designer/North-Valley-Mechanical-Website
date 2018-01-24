@@ -31,7 +31,7 @@
     data: function () {
       return {
         logged: false,
-        app: false,
+        app: true,
         user: {
           id: '',
           token: '',
