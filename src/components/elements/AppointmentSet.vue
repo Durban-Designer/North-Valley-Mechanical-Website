@@ -1,7 +1,6 @@
 <template>
   <div class="main">
     <h4>New Appointment for </h4>
-    <input class="time" v-model="contactTime" placeholder="best time to contact"></input>
     <select class="typeSelect" v-model="type">
       <option value="service">Service</option>
       <option value="replacement">Replacement</option>
@@ -126,8 +125,8 @@
   }
 
   .typeSelect {
-    grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
     grid-row-start: 6;
     grid-row-end: 6;
   }
@@ -149,7 +148,7 @@
     line-height: 1em;
   }
 
-  .appointmentSave {
+  .save {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 9;
@@ -157,7 +156,8 @@
     text-align: center;
     background-color: @yellow;
     border-radius: 6px;
-    margin-right: 15px;
+    margin-right: 60px;
+    margin-left: 60px;
   }
 
   .cancel {
@@ -166,7 +166,6 @@
     text-align: center;
     background-color: #FF0000;
     border-radius: 6px;
-    margin-right: 15px;
   }
 
   // view appointment
@@ -268,15 +267,6 @@
     grid-row-start: 4;
     grid-row-end: 7;
     background-color: white;
-  }
-
-  .save {
-    grid-column: 1;
-    grid-row: 9;
-    text-align: center;
-    background-color: @yellow;
-    border-radius: 6px;
-    margin-right: 15px;
   }
 
   .backEdit {

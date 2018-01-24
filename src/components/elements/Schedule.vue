@@ -19,13 +19,13 @@
         <div class="sunday">Su</div>
       </div>
       <ul class="days">
-        <li v-on:click="dayNum = monday.day; dayClicked = true" v-bind:class="{'mondayCol': true, 'rowOne': monday.row === 1, 'rowTwo': monday.row === 2, 'rowThree': monday.row === 3, 'rowFour': monday.row === 4, 'rowFive': monday.row === 5, 'rowSix': monday.row === 6}" v-for="monday in mondays">{{monday.day}}</li>
-        <li v-on:click="dayNum = tuesday.day; dayClicked = true" v-bind:class="{'tuesdayCol': true, 'rowOne': tuesday.row === 1, 'rowTwo': tuesday.row === 2, 'rowThree': tuesday.row === 3, 'rowFour': tuesday.row === 4, 'rowFive': tuesday.row === 5, 'rowSix': tuesday.row === 6}" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
-        <li v-on:click="dayNum = wednesday.day; dayClicked = true" v-bind:class="{'wednesdayCol': true, 'rowOne': wednesday.row === 1, 'rowTwo': wednesday.row === 2, 'rowThree': wednesday.row === 3, 'rowFour': wednesday.row === 4, 'rowFive': wednesday.row === 5, 'rowSix': wednesday.row === 6}" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
-        <li v-on:click="dayNum = thursday.day; dayClicked = true" v-bind:class="{'thursdayCol': true, 'rowOne': thursday.row === 1, 'rowTwo': thursday.row === 2, 'rowThree': thursday.row === 3, 'rowFour': thursday.row === 4, 'rowFive': thursday.row === 5, 'rowSix': thursday.row === 6}" v-for="thursday in thursdays">{{thursday.day}}</li>
-        <li v-on:click="dayNum = friday.day; dayClicked = true" v-bind:class="{'fridayCol': true, 'rowOne': friday.row === 1, 'rowTwo': friday.row === 2, 'rowThree': friday.row === 3, 'rowFour': friday.row === 4, 'rowFive': friday.row === 5, 'rowSix': friday.row === 6}" v-for="friday in fridays">{{friday.day}}</li>
-        <li v-on:click="dayNum = saturday.day; dayClicked = true" v-bind:class="{'saturdayCol': true, 'rowOne': saturday.row === 1, 'rowTwo': saturday.row === 2, 'rowThree': saturday.row === 3, 'rowFour': saturday.row === 4, 'rowFive': saturday.row === 5, 'rowSix': saturday.row === 6}" v-for="saturday in saturdays">{{saturday.day}}</li>
-        <li v-on:click="dayNum = sunday.day; dayClicked = true" v-bind:class="{'sundayCol': true, 'rowOne': sunday.row === 1, 'rowTwo': sunday.row === 2, 'rowThree': sunday.row === 3, 'rowFour': sunday.row === 4, 'rowFive': sunday.row === 5, 'rowSix': sunday.row === 6}" v-for="sunday in sundays">{{sunday.day}}</li>
+        <li v-on:click="dayNum = monday.day; dayClicked = true" v-bind:class="{'mondayCol': true, 'daySorta': monday.booked === 'sorta', 'dayBooked': monday.booked === 'booked', 'rowOne': monday.row === 1, 'rowTwo': monday.row === 2, 'rowThree': monday.row === 3, 'rowFour': monday.row === 4, 'rowFive': monday.row === 5, 'rowSix': monday.row === 6}" v-for="monday in mondays">{{monday.day}}</li>
+        <li v-on:click="dayNum = tuesday.day; dayClicked = true" v-bind:class="{'tuesdayCol': true, 'daySorta': tuesday.booked === 'sorta', 'dayBooked': tuesday.booked === 'booked', 'rowOne': tuesday.row === 1, 'rowTwo': tuesday.row === 2, 'rowThree': tuesday.row === 3, 'rowFour': tuesday.row === 4, 'rowFive': tuesday.row === 5, 'rowSix': tuesday.row === 6}" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
+        <li v-on:click="dayNum = wednesday.day; dayClicked = true" v-bind:class="{'wednesdayCol': true, 'daySorta': wednesday.booked === 'sorta', 'dayBooked': wednesday.booked === 'booked', 'rowOne': wednesday.row === 1, 'rowTwo': wednesday.row === 2, 'rowThree': wednesday.row === 3, 'rowFour': wednesday.row === 4, 'rowFive': wednesday.row === 5, 'rowSix': wednesday.row === 6}" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
+        <li v-on:click="dayNum = thursday.day; dayClicked = true" v-bind:class="{'thursdayCol': true, 'daySorta': thursday.booked === 'sorta', 'dayBooked': thursday.booked === 'booked', 'rowOne': thursday.row === 1, 'rowTwo': thursday.row === 2, 'rowThree': thursday.row === 3, 'rowFour': thursday.row === 4, 'rowFive': thursday.row === 5, 'rowSix': thursday.row === 6}" v-for="thursday in thursdays">{{thursday.day}}</li>
+        <li v-on:click="dayNum = friday.day; dayClicked = true" v-bind:class="{'fridayCol': true, 'daySorta': friday.booked === 'sorta', 'dayBooked': friday.booked === 'booked', 'rowOne': friday.row === 1, 'rowTwo': friday.row === 2, 'rowThree': friday.row === 3, 'rowFour': friday.row === 4, 'rowFive': friday.row === 5, 'rowSix': friday.row === 6}" v-for="friday in fridays">{{friday.day}}</li>
+        <li v-on:click="dayNum = saturday.day; dayClicked = true" v-bind:class="{'saturdayCol': true, 'daySorta': saturday.booked === 'sorta', 'dayBooked': saturday.booked === 'booked', 'rowOne': saturday.row === 1, 'rowTwo': saturday.row === 2, 'rowThree': saturday.row === 3, 'rowFour': saturday.row === 4, 'rowFive': saturday.row === 5, 'rowSix': saturday.row === 6}" v-for="saturday in saturdays">{{saturday.day}}</li>
+        <li v-on:click="dayNum = sunday.day; dayClicked = true" v-bind:class="{'sundayCol': true, 'daySorta': sunday.booked === 'sorta', 'dayBooked': sunday.booked === 'booked', 'rowOne': sunday.row === 1, 'rowTwo': sunday.row === 2, 'rowThree': sunday.row === 3, 'rowFour': sunday.row === 4, 'rowFive': sunday.row === 5, 'rowSix': sunday.row === 6}" v-for="sunday in sundays">{{sunday.day}}</li>
       </ul>
       <div>{{ this.day }}</div>
       <div class="colorCode"></div>
@@ -121,32 +121,33 @@
         let dayString = vue.months[vue.monthNum].startingDay
         for (i = 0; i < vue.months[vue.monthNum].days; i++) {
           let dayNum = i + 1
+          let bookingStatus = ''
           if (dayString === 'monday') {
-            vue.mondays.push({ day: dayNum, row: rowNum })
+            vue.mondays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'tuesday'
           }
           else if (dayString === 'tuesday') {
-            vue.tuesdays.push({ day: dayNum, row: rowNum })
+            vue.tuesdays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'wednesday'
           }
           else if (dayString === 'wednesday') {
-            vue.wednesdays.push({ day: dayNum, row: rowNum })
+            vue.wednesdays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'thursday'
           }
           else if (dayString === 'thursday') {
-            vue.thursdays.push({ day: dayNum, row: rowNum })
+            vue.thursdays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'friday'
           }
           else if (dayString === 'friday') {
-            vue.fridays.push({ day: dayNum, row: rowNum })
+            vue.fridays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'saturday'
           }
           else if (dayString === 'saturday') {
-            vue.saturdays.push({ day: dayNum, row: rowNum })
+            vue.saturdays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'sunday'
           }
           else if (dayString === 'sunday') {
-            vue.sundays.push({ day: dayNum, row: rowNum })
+            vue.sundays.push({ day: dayNum, row: rowNum, booked: bookingStatus })
             dayString = 'monday'
             rowNum++
           }
@@ -702,6 +703,18 @@
     text-align: center;
     margin-bottom: 5px;
     color:#777;
+  }
+
+  .daySorta li {
+    border-style: solid;
+    border-color: blue;
+    border-width: 5px;
+  }
+
+  .dayBooked li {
+    border-style: solid;
+    border-color: red;
+    border-width: 5px;
   }
   /* Highlight the "current" day */
   .days li .active {
