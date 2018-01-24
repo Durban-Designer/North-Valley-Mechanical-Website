@@ -62,11 +62,7 @@
     margin-top: 200px;
     width: 100%;
     text-align: center;
-    font-size: 1.5em;
-  }
-  h3 {
-    color: @nvmred;
-    background: transparent;
+    font-size: 3em;
   }
 
   button{
@@ -86,6 +82,7 @@
     align-items: center;
     color: #fff;
     height: 50px;
+    background-color: #b20938;
     margin-top: 20px;
     text-align: center;
     font-size: 2em;
