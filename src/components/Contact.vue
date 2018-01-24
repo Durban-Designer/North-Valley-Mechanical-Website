@@ -59,13 +59,18 @@
 
   h2 {
     color: #005da6;
-    margin-top: 200px;
+    margin-top: 80px;
     width: 100%;
     text-align: center;
     font-size: 3em;
   }
 
-  button{
+  h3 {
+    color: #000;
+    background-color: #fff;
+  }
+
+  button {
     background: #b20938;
     color: #fff;
     border: none;
@@ -82,7 +87,6 @@
     align-items: center;
     color: #fff;
     height: 50px;
-    background-color: #b20938;
     margin-top: 20px;
     text-align: center;
     font-size: 2em;
