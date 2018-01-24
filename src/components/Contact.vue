@@ -60,7 +60,7 @@
 
   h2 {
     color: #005da6;
-    margin-top: 200px;
+    margin-top: 100px;
     width: 100%;
     text-align: center;
     font-size: 1.5em;

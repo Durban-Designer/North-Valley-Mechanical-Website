@@ -227,7 +227,7 @@
   }
 
   .accountEditButton {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     background-color: @nvmblue;
   }
 

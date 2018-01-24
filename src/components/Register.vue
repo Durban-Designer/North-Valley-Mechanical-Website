@@ -74,6 +74,7 @@
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
+  @nvmlightred: #e21b3c;
 
   .main {
     height: 500px;
@@ -82,7 +83,7 @@
   }
 
   h1 {
-    color: @nvmred;
+    color: @nvmlightred;
     text-align: center;
   }
 
@@ -91,12 +92,40 @@
   }
 
   button {
-    background-color: #005389;
+    background: linear-gradient(#005DA6, #014271);
     color: #fff;
     border: none;
     font-size: 1.5em;
+    margin-left: 10px;
+  }
+  input {
+    border: 1px solid @nvmblue;
+    width: 90%;
+    margin-left: 5%;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .role {
+    border: 1px solid @nvmblue;
+    width: 90%;
+    margin-left: 5%;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .togglePass {
+    width: 50%;
+    margin-left: 20px;
   }
 
+  .submitRegister {
+    width: 35%;
+  }
+
+  .back {
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
   @media (min-width: 700px) {
   }
 </style>

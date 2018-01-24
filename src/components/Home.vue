@@ -11,8 +11,8 @@
     </ul>
     <div class="about1"></div>
     <p>
-      North Valley Mechanical is an HVAC service company with more than 35 years
-      of experience in providing quality service in the Phoenix area. When you hire us,
+      North Valley Mechanical has over 35 years
+      of experience in providing quality HVAC service in the Phoenix area. When you come to us
       you can rest easy knowing you will receive exceptional service in a timely fashion.
     </p>
     <h2 class="link" v-on:click="$router.push('/contact')">Click here to schedule an appointment!</h2>
@@ -40,6 +40,7 @@
   @nvmblue: #005389;
   @nvmred: #b20938;
   @nvmlightred: #e21b3c;
+  
   .main {
     height: 1200px;
     width: 100%;

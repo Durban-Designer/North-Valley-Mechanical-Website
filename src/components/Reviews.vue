@@ -25,7 +25,7 @@
       He explained the problems and made sure he corrected them. I will recommend
       you to everyone I know. Thanks again.” – M. Smithers
     </p>
-    <button class="leavereview" v-on:click="$router.push('/leavereview')">Leave a Review</button>
+    <button class="leavereview" v-on:click="$router.push('/Leavereview')">Leave a Review</button>
   </div>
 </template>
 
