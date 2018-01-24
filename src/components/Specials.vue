@@ -5,16 +5,16 @@
 </template>
 
 <script>
-export default {
-  name: 'specials',
-  props: ['logged', 'user'],
-  data () {
-    return {}
+  export default {
+    name: 'specials',
+    props: ['logged', 'user'],
+    data () {
+      return {}
+    }
   }
-}
 </script>
 
 <style scoped lang="less">
-.main {
-}
+  .main {
+  }
 </style>

@@ -64,118 +64,119 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  name: 'account',
-  props: ['logged', 'user'],
-  data () {
-    return {
-      modal: '',
-      showPass: false,
-      activeUser: {
-        email: '',
-        password: '',
-        role: '',
-        firstName: '',
-        middleName: '',
-        lastName: '',
-        phone: '',
-        address1: '',
-        address2: ''
+  import axios from 'axios'
+  
+  export default {
+    name: 'account',
+    props: ['logged', 'user'],
+    data () {
+      return {
+        modal: '',
+        showPass: false,
+        activeUser: {
+          email: '',
+          password: '',
+          role: '',
+          firstName: '',
+          middleName: '',
+          lastName: '',
+          phone: '',
+          address1: '',
+          address2: ''
+        }
+      }
+    },
+    created () {
+      if (this.logged !== true) {
+        this.$router.push('/login')
+      }
+    },
+    methods: {
+      updateUser () {
+        let vue = this
+        axios.put('http://54.219.138.159:81/users/' + vue.activeUser.id, {
+          email: vue.activeUser.email,
+          role: vue.activeUser.role,
+          firstName: vue.activeUser.firstName,
+          middleName: vue.activeUser.middleName,
+          lastName: vue.activeUser.lastName,
+          phone: vue.activeUser.phone,
+          address1: vue.activeUser.address1,
+          address2: vue.activeUser.address2
+        }, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
+          .then(function (user) {
+            vue.activeUser.email = user.data.email
+            vue.activeUser.role = user.data.role
+            vue.activeUser.firstName = user.data.firstName
+            vue.activeUser.middleName = user.data.middleName
+            vue.activeUser.lastName = user.data.lastName
+            vue.activeUser.phone = user.data.phone
+            vue.activeUser.address1 = user.data.address1
+            vue.activeUser.address2 = user.data.address2
+            vue.modal = 'view'
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      updatePass () {
+        let vue = this
+        axios.put('http://54.219.138.159:81/users/' + vue.user.id, {
+          password: vue.activeUser.password
+        }, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
+          .then(function (user) {
+            vue.modal = 'success'
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      populateActiveUser () {
+        let vue = this
+        axios.get('http://54.219.138.159:81/users/' + vue.user.id, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
+          .then(function (response) {
+            vue.activeUser.email = response.data.email
+            vue.activeUser.role = response.data.role
+            vue.activeUser.firstName = response.data.firstName
+            vue.activeUser.middleName = response.data.middleName
+            vue.activeUser.lastName = response.data.lastName
+            vue.activeUser.phone = response.data.phone
+            vue.activeUser.address1 = response.data.address1
+            vue.activeUser.address2 = response.data.address2
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      registerUser () {
+        let vue = this
+        axios.post('http://54.219.138.159:81/users', {
+          email: vue.activeUser.email,
+          password: vue.activeUser.password,
+          role: 'employee',
+          firstName: vue.activeUser.firstName,
+          middleName: vue.activeUser.middleName,
+          lastName: vue.activeUser.lastName,
+          phone: vue.activeUser.phone,
+          address1: vue.activeUser.address1,
+          address2: vue.activeUser.address2
+        })
+          .then(function () {
+            vue.modal = 'success'
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     }
-  },
-  created () {
-    if (this.logged !== true) {
-      this.$router.push('/login')
-    }
-  },
-  methods: {
-    updateUser () {
-      let vue = this
-      axios.put('http://54.219.138.159:81/users/' + vue.activeUser.id, {
-        email: vue.activeUser.email,
-        role: vue.activeUser.role,
-        firstName: vue.activeUser.firstName,
-        middleName: vue.activeUser.middleName,
-        lastName: vue.activeUser.lastName,
-        phone: vue.activeUser.phone,
-        address1: vue.activeUser.address1,
-        address2: vue.activeUser.address2
-      }, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
-        .then(function (user) {
-          vue.activeUser.email = user.data.email
-          vue.activeUser.role = user.data.role
-          vue.activeUser.firstName = user.data.firstName
-          vue.activeUser.middleName = user.data.middleName
-          vue.activeUser.lastName = user.data.lastName
-          vue.activeUser.phone = user.data.phone
-          vue.activeUser.address1 = user.data.address1
-          vue.activeUser.address2 = user.data.address2
-          vue.modal = 'view'
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    },
-    updatePass () {
-      let vue = this
-      axios.put('http://54.219.138.159:81/users/' + vue.user.id, {
-        password: vue.activeUser.password
-      }, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
-        .then(function (user) {
-          vue.modal = 'success'
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    },
-    populateActiveUser () {
-      let vue = this
-      axios.get('http://54.219.138.159:81/users/' + vue.user.id, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
-        .then(function (response) {
-          vue.activeUser.email = response.data.email
-          vue.activeUser.role = response.data.role
-          vue.activeUser.firstName = response.data.firstName
-          vue.activeUser.middleName = response.data.middleName
-          vue.activeUser.lastName = response.data.lastName
-          vue.activeUser.phone = response.data.phone
-          vue.activeUser.address1 = response.data.address1
-          vue.activeUser.address2 = response.data.address2
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    },
-    registerUser () {
-      let vue = this
-      axios.post('http://54.219.138.159:81/users', {
-        email: vue.activeUser.email,
-        password: vue.activeUser.password,
-        role: 'employee',
-        firstName: vue.activeUser.firstName,
-        middleName: vue.activeUser.middleName,
-        lastName: vue.activeUser.lastName,
-        phone: vue.activeUser.phone,
-        address1: vue.activeUser.address1,
-        address2: vue.activeUser.address2
-      })
-        .then(function () {
-          vue.modal = 'success'
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    }
   }
-}
 </script>
 
 <style scoped lang="less">
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
-  
+
   .main {
     margin-top: 120px;
   }

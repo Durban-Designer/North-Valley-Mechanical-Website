@@ -5,16 +5,16 @@
 </template>
 
 <script>
-export default {
-  name: '404',
-  data () {
-    return {}
+  export default {
+    name: '404',
+    data () {
+      return {}
+    }
   }
-}
 </script>
 
 <style scoped lang="less">
-.main {
-  margin-top: 120px;
-}
+  .main {
+    margin-top: 120px;
+  }
 </style>

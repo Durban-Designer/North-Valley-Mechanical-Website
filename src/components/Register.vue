@@ -24,79 +24,79 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default {
-  name: 'Register',
-  props: ['logged', 'user'],
-  data () {
-    return {
-      showPass: false,
-      activeUser: {
-        email: '',
-        password: '',
-        role: '',
-        firstName: '',
-        middleName: '',
-        lastName: '',
-        phone: '',
-        address1: '',
-        address2: ''
+  import axios from 'axios'
+
+  export default {
+    name: 'Register',
+    props: ['logged', 'user'],
+    data () {
+      return {
+        showPass: false,
+        activeUser: {
+          email: '',
+          password: '',
+          role: '',
+          firstName: '',
+          middleName: '',
+          lastName: '',
+          phone: '',
+          address1: '',
+          address2: ''
+        }
+      }
+    },
+    methods: {
+      registerUser () {
+        let vue = this
+        axios.post('http://54.219.138.159:81/users', {
+          email: vue.activeUser.email,
+          password: vue.activeUser.password,
+          role: vue.activeUser.role,
+          firstName: vue.activeUser.firstName,
+          middleName: vue.activeUser.middleName,
+          lastName: vue.activeUser.lastName,
+          phone: vue.activeUser.phone,
+          address1: vue.activeUser.address1,
+          address2: vue.activeUser.address2
+        })
+          .then(function () {
+            vue.$router.push('/account')
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     }
-  },
-  methods: {
-    registerUser () {
-      let vue = this
-      axios.post('http://54.219.138.159:81/users', {
-        email: vue.activeUser.email,
-        password: vue.activeUser.password,
-        role: vue.activeUser.role,
-        firstName: vue.activeUser.firstName,
-        middleName: vue.activeUser.middleName,
-        lastName: vue.activeUser.lastName,
-        phone: vue.activeUser.phone,
-        address1: vue.activeUser.address1,
-        address2: vue.activeUser.address2
-      })
-        .then(function () {
-          vue.$router.push('/account')
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    }
   }
-}
 </script>
 
 <style scoped lang="less">
-@nvmgrey: #dae5ed;
-@nvmblue: #005389;
-@nvmred: #b20938;
-.main {
-  height: 500px;
-  width: 100%;
-  margin-top: 120px;
-}
+  @nvmgrey: #dae5ed;
+  @nvmblue: #005389;
+  @nvmred: #b20938;
 
-h1 {
-  color: @nvmred;
-  text-align: center;
-}
+  .main {
+    height: 500px;
+    width: 100%;
+    margin-top: 120px;
+  }
 
+  h1 {
+    color: @nvmred;
+    text-align: center;
+  }
 
-select option[data-default] {
-  color: #888;
-}
+  select option[data-default] {
+    color: #888;
+  }
 
-button {
-  background-color: #005389;
-  color: #fff;
-  border: none;
-  font-size: 1.5em;
-}
+  button {
+    background-color: #005389;
+    color: #fff;
+    border: none;
+    font-size: 1.5em;
+  }
 
-@media (min-width: 700px) {
-}
-
+  @media (min-width: 700px) {
+  }
 </style>
