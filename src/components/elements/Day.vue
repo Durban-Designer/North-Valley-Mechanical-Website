@@ -8,14 +8,6 @@
     <div class="back" v-on:click="backDay"><div class="backIcon">&#10094;</div></div>
     <div class="next" v-on:click="nextDay"><div class="nextIcon">&#10095;</div></div>
     <div class="dayView">
-      <div class="twelveAm" v-on:click="appointmentClick()">12:00am<hr/></div>
-      <div class="oneAm" v-on:click="appointmentClick()">1:00am<hr/></div>
-      <div class="twoAm" v-on:click="appointmentClick()">2:00am<hr/></div>
-      <div class="threeAm" v-on:click="appointmentClick()">3:00am<hr/></div>
-      <div class="fourAm" v-on:click="appointmentClick()">4:00am<hr/></div>
-      <div class="fiveAm" v-on:click="appointmentClick()">5:00am<hr/></div>
-      <div class="sixAm" v-on:click="appointmentClick()">6:00am<hr/></div>
-      <div class="sevenAm" v-on:click="appointmentClick()">7:00am<hr/></div>
       <div class="eightAm" v-on:click="appointmentClick()">8:00am<hr/></div>
       <div class="nineAm" v-on:click="appointmentClick()">9:00am<hr/></div>
       <div class="tenAm" v-on:click="appointmentClick()">10:00am<hr/></div>
@@ -26,12 +18,6 @@
       <div class="threePm" v-on:click="appointmentClick()">3:00pm<hr/></div>
       <div class="fourPm" v-on:click="appointmentClick()">4:00pm<hr/></div>
       <div class="fivePm" v-on:click="appointmentClick()">5:00pm<hr/></div>
-      <div class="sixPm" v-on:click="appointmentClick()">6:00pm<hr/></div>
-      <div class="sevenPm" v-on:click="appointmentClick()">7:00pm<hr/></div>
-      <div class="eightPm" v-on:click="appointmentClick()">8:00pm<hr/></div>
-      <div class="ninePm" v-on:click="appointmentClick()">9:00pm<hr/></div>
-      <div class="tenPm" v-on:click="appointmentClick()">10:00pm<hr/></div>
-      <div class="elevenPm" v-on:click="appointmentClick()">11:00pm<hr/></div>
       <div class="appointment" v-for="appointment in appointments" v-bind:class="appointmentLogic(appointment)" v-on:click="appointmentClick(appointment)" >{{appointment.title}}</div>
     </div>
     <appointmentSet v-if="appointmentShow" v-on:backAppointment="appointmentShow = false"  v-on:saveAppointment="appointmentSave" :editable="editable" :appointmentProp="clickedAppointment"></appointmentSet>
@@ -158,12 +144,12 @@
 <style scoped lang="less">
   @yellow: #f4c20d;
   @grey: #bbdef0;
-  
+
   .main {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 6fr 1fr;
-    grid-template-rows: 90px 860px 20px;
+    grid-template-rows: 90px 330px 20px;
     background-color: @grey;
   }
 
@@ -173,7 +159,7 @@
     height: 790px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(24, 2em);
+    grid-template-rows: repeat(10, 2em);
     padding-top: 10px;
     background-color: #fff;
     border-radius: 0 0 20px 20px;
@@ -293,13 +279,13 @@
     grid-row: 2;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(24, 2em);
+    grid-template-rows: repeat(10, 2em);
     background-color: @grey;
   }
 
   .backIcon {
     text-align: center;
-    grid-row: 12;
+    grid-row: 5;
   }
 
   .next {
@@ -308,13 +294,13 @@
     grid-row: 2;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(24, 2em);
+    grid-template-rows: repeat(10, 2em);
     background-color: @grey;
   }
 
   .nextIcon {
     text-align: center;
-    grid-row: 12;
+    grid-row: 5;
   }
 
   /* times: half hour and 12am-11pm */
@@ -323,436 +309,185 @@
     margin-top: 5px;
   }
 
-  .twelveAm {
+  .eightAm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 1;
   }
 
-  .oneAm {
+  .nineAm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 2;
   }
 
-  .twoAm {
+  .tenAm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 3;
   }
 
-  .threeAm {
+  .elevenAm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 4;
   }
 
-  .fourAm {
+  .twelvePm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 5;
   }
 
-  .fiveAm {
+  .onePm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 6;
   }
 
-  .sixAm {
+  .twoPm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 7;
   }
 
-  .sevenAm {
+  .threePm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 8;
   }
 
-  .eightAm {
+  .fourPm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 9;
   }
 
-  .nineAm {
+  .fivePm {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row: 10;
   }
 
-  .tenAm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 11;
-  }
-
-  .elevenAm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 12;
-  }
-
-  .twelvePm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 13;
-  }
-
-  .onePm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 14;
-  }
-
-  .twoPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 15;
-  }
-
-  .threePm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 16;
-  }
-
-  .fourPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 17;
-  }
-
-  .fivePm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 18;
-  }
-
-  .sixPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 19;
-  }
-
-  .sevenPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 20;
-  }
-
-  .eightPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 21;
-  }
-
-  .ninePm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 22;
-  }
-
-  .tenPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 23;
-  }
-
-  .elevenPm {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row: 24;
-  }
-
-
-  .twelveAmStart {
+ //starts
+  .eightAmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 1;
   }
 
-  .oneAmStart {
+  .nineAmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 2;
   }
 
-  .twoAmStart {
+  .tenAmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 3;
   }
 
-  .threeAmStart {
+  .elevenAmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 4;
   }
 
-  .fourAmStart {
+  .twelvePmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 5;
   }
 
-  .fiveAmStart {
+  .onePmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 6;
   }
 
-  .sixAmStart {
+  .twoPmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 7;
   }
 
-  .sevenAmStart {
+  .threePmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 8;
   }
 
-  .eightAmStart {
+  .fourPmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 9;
   }
 
-  .nineAmStart {
+  .fivePmStart {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 10;
   }
 
-  .tenAmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 11;
-  }
-
-  .elevenAmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 12;
-  }
-
-  .twelvePmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 13;
-  }
-
-  .onePmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 14;
-  }
-
-  .twoPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 15;
-  }
-
-  .threePmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 16;
-  }
-
-  .fourPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 17;
-  }
-
-  .fivePmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 18;
-  }
-
-  .sixPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 19;
-  }
-
-  .sevenPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 20;
-  }
-
-  .eightPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 21;
-  }
-
-  .ninePmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 22;
-  }
-
-  .tenPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 23;
-  }
-
-  .elevenPmStart {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 24;
-  }
-
-  .twelveAmEnd {
+ //ends
+  .eightAmEnd  {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 1;
   }
 
-  .oneAmEnd  {
+  .nineAmEnd  {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 2;
   }
 
-  .twoAmEnd  {
+  .tenAmEnd  {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 3;
   }
 
-  .threeAmEnd  {
+  .elevenAmEnd  {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 4;
   }
 
-  .fourAmEnd  {
+  .twelvePmEnd  {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 5;
   }
 
-  .fiveAmEnd  {
+  .onePmEnd {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 6;
   }
 
-  .sixAmEnd  {
+  .twoPmEnd {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 7;
   }
 
-  .sevenAmEnd  {
+  .threePmEnd {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 8;
   }
 
-  .eightAmEnd  {
+  .fourPmEnd {
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-end: 9;
   }
 
-  .nineAmEnd  {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 10;
-  }
-
-  .tenAmEnd  {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 11;
-  }
-
-  .elevenAmEnd  {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 12;
-  }
-
-  .twelvePmEnd  {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 13;
-  }
-
-  .onePmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 14;
-  }
-
-  .twoPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 15;
-  }
-
-  .threePmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 16;
-  }
-
-  .fourPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 17;
-  }
-
   .fivePmEnd {
     grid-column-start: 1;
     grid-column-end: 7;
-    grid-row-end: 18;
-  }
-
-  .sixPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 19;
-  }
-
-  .sevenPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 20;
-  }
-
-  .eightPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 21;
-  }
-
-  .ninePmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 22;
-  }
-
-  .tenPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 23;
-  }
-
-  .elevenPmEnd {
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-end: 24;
+    grid-row-end: 10;
   }
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div class="main">
     <h4>New Appointment for </h4>
-    <select class="typeSelect" v-model="type">
+    <select class="typeSelect" v-model="appointment.type">
       <option value="service">Service</option>
       <option value="replacement">Replacement</option>
       <option value="maintenance">Annual Maintenance</option>
     </select>
-    <input class="message" v-model="message" placeholder="Message"></input>
-    <div v-on:click="appointmentSave" class="save">Save</div>
+    <input class="message" v-model="appointment.message" placeholder="Message"></input>
     <div class="success" v-if="success"></div>
     <div class="error" v-else-if="error"></div>
+    <div v-on:click="appointmentSave" class="save" v-else>Save</div>
     <div v-on:click="cancel" class="cancel">Cancel</div>
   </div>
 </template>
@@ -20,6 +20,8 @@
     props: ['appointmentProp', 'editable'],
     data: function () {
       return {
+        success: '',
+        error: '',
         timeStartSelect: 'twelveAm',
         timeEndSelect: 'twelveAm',
         selected: 'personal',
