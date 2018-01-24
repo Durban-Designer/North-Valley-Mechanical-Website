@@ -68,6 +68,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmgrey: #dae5ed;
+@nvmblue: #005389;
+@nvmred: #b20938;
 .main {
   height: 500px;
   width: 100%;
@@ -75,7 +78,7 @@ export default {
   text-align:center;
 }
 h1 {
-
+  color: @nvmred;
 }
 .registerlink {
   font-size: 1em;
