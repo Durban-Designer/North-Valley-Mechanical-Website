@@ -101,7 +101,7 @@
   }
 
   input {
-    border: 1px solid black;
+    border: 1px solid @nvmblue;
     margin-top: 5px;
     height: 30px;
   }

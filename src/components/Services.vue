@@ -88,7 +88,7 @@
   @nvmGrey: #dae5ed;
   @nvmBlue: #005389;
   @nvmRed: #b20938;
-
+  @nvmlightred: #e21b3c;
   .main {
     height: 1500px;
     width: 100%;
@@ -103,15 +103,11 @@
 
   h2 {
     font-size: 3em;
-    color: @nvmRed;
+    color: @nvmlightred;
     margin: 0;
+    width: 100%;
+    text-align: center;
     padding: 0 15px;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0
-  #fff, 1px 0 0 #98b5cc,
-
-    0 1px 0 #98b5cc, 2px 1px 0 #98b5cc, 1px 2px 0 #98b5cc, 3px 2px 0 #98b5cc,
-  2px 3px 0 #98b5cc, 4px 3px 0 #98b5cc, 4px 3px 0 #98b5cc, 5px 4px 0 #98b5cc,
-  4px 5px 0 #98b5cc,
   }
 
   h4 {
@@ -119,6 +115,8 @@
     margin: 0;
     padding: 0 15px;
     padding-top: 50px;
+    text-align: center;
+    width: 100%;
   }
 
   p {
@@ -127,6 +125,7 @@
     width: 100%!important;
     padding: 0 1.5em;
     line-height: 24px;
+    text-align: center;
   }
 
   .acImage {
@@ -137,15 +136,13 @@
   }
 
   button {
-    -webkit-border-radius: 14;
-    -moz-border-radius: 14;
-    border-radius: 14px;
-    font-family: arial black;
-    color: #ffffff;
+    margin-left: 17%;
+    font-weight: bold;
+    color: #fff;
     font-size: 1em;
-    background: @nvmRed;
-    margin: 0 1em;
+    background: linear-gradient(#e21b3c, #b20938);\
     padding: 14px 30px 14px 30px;
+    width: 250px;
     text-decoration: none;
     transition: all .5s;
   }
