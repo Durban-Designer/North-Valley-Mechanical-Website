@@ -103,14 +103,16 @@ export default {
 </script>
 
 <style scoped lang="less">
+
 .navpane {
   display: none;
   overflow: hidden;
 }
+
 .main {
   width: 100%;
-
 }
+
 .nv {
   margin-top: 20px;
   width: 80px;
@@ -202,8 +204,8 @@ export default {
   font-size: 2.5em;
   font-weight: 400;
 }
-@keyframes navpaneAnimation {
 
+@keyframes navpaneAnimation {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
