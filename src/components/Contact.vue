@@ -62,7 +62,11 @@
     margin-top: 80px;
     width: 100%;
     text-align: center;
-    font-size: 3em;
+    font-size: 1.5em;
+  }
+  h3 {
+    color: @nvmred;
+    background: transparent;
   }
 
   h3 {

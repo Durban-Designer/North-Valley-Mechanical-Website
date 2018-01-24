@@ -25,7 +25,7 @@
         <option value="landlord">Landlord / Property Manager</option>
       </select>
       <button class="submitEdit" v-on:click="updateUser">Submit</button>
-      <button class="back" v-on:click="modal=''">Back</button>
+      <button class="back" v-on:click="modal='view'">Back</button>
     </div>
     <div class="updatePass" v-else-if="modal==='pass'">
       <input class="passwordEdit" v-model="activeUser.password" placeholder="********" v-if="!showPass" type="password">
@@ -56,7 +56,7 @@
     </div>
     <div class="accountHome" v-else>
       <h1>Account</h1>
-      <button class="registerEmployeeButton" v-on:click="modal='register'" v-if="user.role === 'employee'">Register Employee</button>
+      <button class="registerEmployeeButton" v-on:click="modal='register'; clearActiveUser()" v-if="user.role === 'employee'">Register Employee</button>
       <button class="accountViewButton" v-on:click="modal='view'; populateActiveUser()">View Account</button>
       <button class="logout" v-on:click="$emit('logout')">Log Out</button>
     </div>
@@ -65,7 +65,7 @@
 
 <script>
   import axios from 'axios'
-  
+
   export default {
     name: 'account',
     props: ['logged', 'user'],
@@ -130,6 +130,17 @@
           .catch(function (error) {
             console.log(error)
           })
+      },
+      clearActiveUser () {
+        let vue = this
+        vue.activeUser.email = ''
+        vue.activeUser.role = ''
+        vue.activeUser.firstName = ''
+        vue.activeUser.middleName = ''
+        vue.activeUser.lastName = ''
+        vue.activeUser.phone = ''
+        vue.activeUser.address1 = ''
+        vue.activeUser.address2 = ''
       },
       populateActiveUser () {
         let vue = this

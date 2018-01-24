@@ -3,72 +3,73 @@
   <div id="q-app">
     <navbar v-on:logout="logout" :logged="logged" :user="user" :app="app"></navbar>
     <transition name="fade">
-      <router-view v-on:login="login" v-on:logout="logout" :logged="logged" :user="user"/>
+      <router-view v-on:login="login" v-on:logout="logout" :logged="logged" :user="user" :app="app"/>
     </transition>
     <foot></foot>
   </div>
 </template>
 
 <script>
-import Navbar from './components/elements/Navbar'
-import Foot from './components/elements/Foot'
-export default {
-  name: 'app',
-  components: {
-    'navbar': Navbar,
-    'foot': Foot
-  },
-  created () {
-    let vue = this
-    vue.user.token = localStorage.getItem('token')
-    vue.user.id = localStorage.getItem('userId')
-    vue.user.role = localStorage.getItem('role')
-    if (vue.user.token !== null) {
-      vue.logged = true
-    }
-  },
-  data: function () {
-    return {
-      logged: false,
-      app: false,
-      user: {
-        id: '',
-        token: '',
-        role: ''
-      }
-    }
-  },
-  methods: {
-    login: function (user) {
+  import Navbar from './components/elements/Navbar'
+  import Foot from './components/elements/Foot'
+
+  export default {
+    name: 'app',
+    components: {
+      'navbar': Navbar,
+      'foot': Foot
+    },
+    created () {
       let vue = this
-      vue.user.token = user.token
-      vue.user.id = user.id
-      vue.user.role = user.role
-      vue.logged = true
-      if (vue.user.role === 'employee') {
-        vue.$router.push('/messaging')
-      }
-      else {
-        vue.$router.push('/account')
+      vue.user.token = localStorage.getItem('token')
+      vue.user.id = localStorage.getItem('userId')
+      vue.user.role = localStorage.getItem('role')
+      if (vue.user.token !== null) {
+        vue.logged = true
       }
     },
-    logout: function () {
-      let vue = this
-      vue.user.token = ''
-      vue.user.id = ''
-      vue.logged = false
-      localStorage.removeItem('token')
-      localStorage.removeItem('userId')
-      localStorage.removeItem('role')
-      if (vue.app === false) {
-        vue.$router.push('/')
+    data: function () {
+      return {
+        logged: false,
+        app: false,
+        user: {
+          id: '',
+          token: '',
+          role: ''
+        }
       }
-      else {
-        vue.$router.push('/login')
+    },
+    methods: {
+      login: function (user) {
+        let vue = this
+        vue.user.token = user.token
+        vue.user.id = user.id
+        vue.user.role = user.role
+        vue.logged = true
+        if (vue.user.role === 'employee') {
+          vue.$router.push('/messaging')
+        }
+        else {
+          vue.$router.push('/account')
+        }
+      },
+      logout: function () {
+        let vue = this
+        vue.user.token = ''
+        vue.user.id = ''
+        vue.logged = false
+        localStorage.removeItem('token')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('role')
+        if (vue.app === false) {
+          vue.$router.push('/')
+        }
+        else {
+          vue.$router.push('/login')
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped lang="less">

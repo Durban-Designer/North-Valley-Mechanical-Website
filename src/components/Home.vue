@@ -22,9 +22,15 @@
 <script>
   export default {
     name: 'home',
-    props: ['logged', 'user'],
+    props: ['logged', 'user', 'app'],
     data () {
       return {}
+    },
+    created () {
+      let vue = this
+      if (vue.app === true) {
+        vue.$router.push('/login')
+      }
     }
   }
 </script>
@@ -39,7 +45,7 @@
     width: 100%;
     margin-top: 100px;
   }
-  
+
   .banner {
     background-image: url('../assets/banner.jpg');
     background-size: contain;
