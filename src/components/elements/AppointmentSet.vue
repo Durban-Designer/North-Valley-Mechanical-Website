@@ -65,7 +65,10 @@
 
 <style scoped lang="less">
   @yellow: #f4c20d;
-  
+  @nvmgrey: #dae5ed;
+  @nvmblue: #005389;
+  @nvmred: #b20938;
+  @nvmlightred: #e21b3c;
   .main {
     width: 100%;
     height: 100%;
@@ -277,5 +280,9 @@
     background-color: #FF0000;
     border-radius: 6px;
     margin-right: 15px;
+  }
+
+  button {
+    background: linear-gradient(#e21b3c, #b20938);
   }
 </style>

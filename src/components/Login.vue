@@ -72,32 +72,32 @@
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
-
+  @nvmlightred: #e21b3c;
   .main {
     height: 500px;
     width: 100%;
     margin-top: 120px;
     text-align:center;
   }
-  
+
   h1 {
-    color: @nvmred;
+    color: @nvmlightred;
   }
 
   .registerlink {
-    font-size: 1em;
+    font-size: 1.3em;
     color: #005389;
   }
 
   .logged {
-    font-size: 1.4em;
+    font-size: 1.5em;
   }
 
   button {
-    background-color: #005389;
+    background: linear-gradient(#005DA6, #014271);
     color: #fff;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.7em;
   }
 
   input {
