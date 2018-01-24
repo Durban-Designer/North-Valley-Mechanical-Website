@@ -1,12 +1,13 @@
 <template>
   <div class="main">
-    <h1>Error 404</h1>
+    <h1>messaging</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: '404',
+  name: 'messaging',
+  props: ['logged', 'user'],
   data () {
     return {}
   }

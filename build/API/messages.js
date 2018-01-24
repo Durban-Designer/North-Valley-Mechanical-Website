@@ -8,7 +8,6 @@ var jwt = require('jsonwebtoken');
 var app = express();
 var router = express.Router();
 var mongoose = require("mongoose");
-var Lead = mongoose.model("Lead");
 var User = mongoose.model("User");
 var Message = mongoose.model("Message");
 var bcrypt = require('bcryptjs');

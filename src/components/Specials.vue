@@ -1,12 +1,13 @@
 <template>
   <div class="main">
-    <h1>About</h1>
+    <h1>specials</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: '',
+  name: 'specials',
+  props: ['logged', 'user'],
   data () {
     return {}
   }
@@ -15,10 +16,5 @@ export default {
 
 <style scoped lang="less">
 .main {
-  height: 500px;
-  width: 100%;
-  margin-top: 120px;
-}
-@media (min-width: 700px) {
 }
 </style>

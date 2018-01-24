@@ -2,14 +2,22 @@
   <div class="main">
     <div class="banner"></div>
     <h1>FAST, FRIENDLY & EFFECTIVE SERVICE</h1>
-    <iframe width="100%" height="320px" src="https://www.youtube.com/embed/3nN_SIpQjc0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</iframe>
+    <ul>
+      <li>Air Conditioning</li>
+      <li>Heating</li>
+      <li>Refridgeration</li>
+      <li>Duct Upgrades</li>
+      <li>Energy Audits</li>
+    </ul>
+    <div class="about1"></div>
+    <p>North Valley Mechanical is an air conditioning service company with more than 35 years of experience in providing quality air conditioning service in Phoenix, AZ. When you hire us, you hire a team of professionals dedicated to providing advanced technological solutions for Phoenix air conditioning.</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'home',
+  props: ['logged', 'user'],
   data () {
     return {}
   }
@@ -17,8 +25,11 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmgrey: #dae5ed;
+@nvmblue: #005389;
+@nvmred: #b20938;
 .main {
-  height: 700px;
+  height: 1200px;
   width: 100%;
   margin-top: 100px;
 }
@@ -27,16 +38,36 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  height: 160px;
+  height: 165px;
 
 }
 h1 {
-  font-size: 2.8em;
-  font-weight: 400;
+  width: 100%;
+  font-size: 2.9em;
   line-height: 40px;
-  margin-top: 10px;
-  margin-left: 20px;
-  color: #005389;
+  margin-top: 20px;
+  color: @nvmblue;
+  background-color: @nvmgrey;
+  padding-left: 2%;
+}
+ul {
+  font-size: 2em;
+  width: 100%;
+  background:  @nvmblue;
+  color: #fff;
+  list-style: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+p {
+  font-size: 1.5em;
+  margin-top: 30px;
+
+}
+.about1 {
+  width: 100%;
+  height: 200px;
+  border: 1px dashed black;
 
 }
 @media (min-width: 700px) {

@@ -3,10 +3,14 @@
     <div class="navbar">
       <div v-bind:class="nvLogic" v-on:click="navToggle"></div>
       <div v-bind:class="navpaneLogic">
-        <button v-bind:class="HomeLogic" v-on:click="navToggle(); $router.push('/')">HOME</button>
-        <button v-bind:class="AboutLogic" v-on:click="navToggle(); $router.push('/about')">ABOUT</button>
-        <button v-bind:class="ServicesLogic" v-on:click="navToggle(); $router.push('/services')">SERVICES</button>
-        <button v-bind:class="ContactLogic" v-on:click="navToggle(); $router.push('/contact')">CONTACT</button>
+        <button class="Home" v-on:click="navToggle(); $router.push('/')" v-if="!app">Home</button>
+        <button class="Services" v-on:click="navToggle(); $router.push('/Services')" v-if="!app">Services</button>
+        <button class="Reviews" v-on:click="navToggle(); $router.push('/Reviews')">Reviews</button>
+        <button class="Contact" v-on:click="navToggle(); $router.push('/Contact')">Contact</button>
+        <button class="Services" v-on:click="navToggle(); $router.push('/Specials')" v-if="app">Specials</button>
+        <button class="Login" v-on:click="navToggle(); $router.push('/Login')" v-if="!logged">Login</button>
+        <button class="Login" v-on:click="navToggle(); $router.push('/Account')" v-if="logged">Account</button>
+        <button class="Login" v-on:click="navToggle(); $emit('logout')" v-if="logged && app">Logout</button>
     </div>
   </div>
 </div>
@@ -15,30 +19,13 @@
 <script>
 export default {
   name: 'navbar',
+  props: ['logged', 'user', 'app'],
   data () {
     return {
       toggled: false,
       isToggled: false,
       first: true
     }
-  },
-  created () {
-    let vue = this
-    function toggleShow () {
-      if (vue.show === 0) {
-        vue.show = 1
-      }
-      else if (vue.show === 1) {
-        vue.show = 2
-      }
-      else if (vue.show === 2) {
-        vue.show = 3
-      }
-      else if (vue.show === 3) {
-        vue.show = 4
-      }
-    }
-    setInterval(toggleShow, 4000)
   },
   computed: {
     nvLogic: function () {
@@ -54,36 +41,12 @@ export default {
         navpaneAnimation: this.isToggled,
         navpaneAnimationExit: !this.isToggled && !this.first
       }
-    },
-    HomeLogic: function () {
-      return {
-        Home: this.isToggled || this.first,
-        hidden: !this.isToggled && !this.first
-      }
-    },
-    ServicesLogic: function () {
-      return {
-        Services: this.isToggled || this.first,
-        hidden: !this.isToggled && !this.first
-      }
-    },
-    ContactLogic: function () {
-      return {
-        Contact: this.isToggled || this.first,
-        hidden: !this.isToggled && !this.first
-      }
-    },
-    AboutLogic: function () {
-      return {
-        About: this.isToggled || this.first,
-        hidden: !this.isToggled && !this.first
-      }
     }
   },
   methods: {
     navToggle: function () {
       // Nav button functionality
-      if (window.innerWidth < 720) {
+      if (window.innerWidth < 700) {
         if (this.toggled === false) {
           this.toggled = true
           this.isToggled = true
@@ -103,6 +66,7 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmblue: #005389;
 
 .navpane {
   display: none;
@@ -125,10 +89,11 @@ export default {
   background-repeat: no-repeat;
   background-image: url("../../assets/navbuttonAnimationWhite.svg");
 }
+
 .navbar {
   width: 100%;
   height: 100px;
-  background: #005389;
+  background: linear-gradient(#005DA6, #014271);
   position: fixed;
   top: 0;
   left: 0;
@@ -151,19 +116,23 @@ export default {
   z-index: 10;
   width: 100%;
   height: 400px;
-  margin-top: 15px;
+  margin-top: 1px;
   background: #b20938;
   color: #fff;
-  outline: solid 2px ;
+  outline: solid 1px ;
   outline-color: #fff;
-  outline-offset: -6px;
+  box-shadow: 0px 1px 1px 2px #fff;
 }
 
 .navpaneAnimationExit {
   animation: navpaneAnimationReverse .3s steps(9);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  display: none;
+}
 
+.navpaneAnimationExit button {
+  display: none;
 }
 
 .Home {
@@ -173,16 +142,17 @@ export default {
   color: #fff;
   font-size: 2.5em;
   width: 100%;
-  font-weight: 400;
+  font-weight: normal;
 }
-.About {
+
+.Reviews {
   background-color: transparent;
   width: 100%;
   background-color: transparent;
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Contact {
@@ -192,7 +162,7 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .Services {
@@ -202,7 +172,17 @@ export default {
   border: none;
   color: #fff;
   font-size: 2.5em;
-  font-weight: 400;
+  font-weight: normal;
+}
+
+.Login {
+  background-color: transparent;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: normal;
 }
 
 @keyframes navpaneAnimation {
@@ -212,7 +192,7 @@ export default {
 
 @keyframes navpaneAnimationReverse {
   0% { opacity: 1; }
-  100% { opacity: 0;}
+  100% { opacity: 0; display: none;}
 }
 
 @keyframes navButtonAnimation {
@@ -223,6 +203,7 @@ export default {
   0% {background-position: -1440px;}
   100% {background-position: 0px;}
 }
+
 .navButtonAnimation {
   animation: navButtonAnimation .35s steps(18);
   animation-iteration-count: 1;
