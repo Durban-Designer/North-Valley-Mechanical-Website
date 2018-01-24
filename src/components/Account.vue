@@ -33,6 +33,7 @@
       <button class="togglePass" v-on:click="showPass = !showPass" v-if="!showPass">Show Password</button>
       <button class="togglePass" v-on:click="showPass = !showPass" v-if="showPass">Hide Password</button>
       <button class="submitUpdatePass" v-on:click="updatePass">Submit</button>
+      <button class="back" v-on:click="modal=''">Back</button>
     </div>
     <div class="registerEmployee" v-else-if="modal==='register'">
       <input class="firstNameRegister" v-model="activeUser.firstName" placeholder="First Name"></input>
@@ -47,6 +48,7 @@
       <button class="togglePass" v-on:click="showPass = !showPass" v-if="!showPass">Show Password</button>
       <button class="togglePass" v-on:click="showPass = !showPass" v-if="showPass">Hide Password</button>
       <button class="submitRegister" v-on:click="registerUser">Submit</button>
+      <button class="back" v-on:click="modal=''">Back</button>
     </div>
     <div class="success" v-else-if="modal==='success'">
       <h1>Success!!</h1>

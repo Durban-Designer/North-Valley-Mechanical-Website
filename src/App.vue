@@ -30,7 +30,7 @@ export default {
   data: function () {
     return {
       logged: false,
-      app: true,
+      app: false,
       user: {
         id: '',
         token: '',
