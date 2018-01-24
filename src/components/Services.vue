@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="cooling" v-if="modal==='cool'">
-      <h2>Air Conditioning</h2>
+      <h2 data-heading>Air Conditioning</h2>
       <div class="acImage"></div>
       <h4>Keeping Arizona Cool</h4>
       <p class="p1">
@@ -23,9 +23,9 @@
       <button class="requestQuote">REQUEST A QUOTE NOW</button>
     </div>
     <div class="heating" v-else-if="modal==='hot'">
-      <h2>Heating Equipment</h2>
+      <h2 data-heading>Heating Equipment Services</h2>
       <div class="acImage"></div>
-      <h4>Keeping Arizona Cool</h4>
+      <h4>Efficient and Safe Heating</h4>
       <p class="p1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend
@@ -34,7 +34,7 @@
         Cursus euismod quis viverra nibh cras pulvinar mattis nunc sed. Sed augue
         lacus viverra vitae congue eu consequat ac.
       </p>
-      <h4>Budget Friendly System</h4>
+      <h4>Emergency Service Available</h4>
       <p class="p2">
         Mauris sit amet massa vitae. Amet consectetur adipiscing elit ut aliquam
         purus. Sit amet risus nullam eget felis. Condimentum vitae sapien pellentesque
@@ -45,6 +45,26 @@
       <button class="requestQuote">REQUEST A QUOTE NOW</button>
     </div>
     <div class="maintenance" v-else-if="modal==='maintenance'">
+      <h2 data-heading>Maintenance</h2>
+      <div class="acImage"></div>
+      <h4>Avoid Costly Repairs</h4>
+      <p class="p1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend
+        donec pretium vulputate sapien nec sagittis. Pulvinar sapien et ligula
+        ullamcorper malesuada proin libero. In cursus turpis massa tincidunt dui.
+        Cursus euismod quis viverra nibh cras pulvinar mattis nunc sed. Sed augue
+        lacus viverra vitae congue eu consequat ac.
+      </p>
+      <h4>Ensuring Optimal Performance</h4>
+      <p class="p2">
+        Mauris sit amet massa vitae. Amet consectetur adipiscing elit ut aliquam
+        purus. Sit amet risus nullam eget felis. Condimentum vitae sapien pellentesque
+        habitant morbi tristique senectus et. Quam viverra orci sagittis eu volutpat
+        odio. Interdum velit euismod in pellentesque. Metus vulputate eu scelerisque
+        felis. Ut enim blandit volutpat maecenas volutpat blandit.
+      </p>
+      <button class="requestQuote">REQUEST A QUOTE NOW</button>
     </div>
     <div class="services" v-else>
       <h1>Services</h1>
@@ -86,6 +106,12 @@
     color: @nvmRed;
     margin: 0;
     padding: 0 15px;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0
+  #fff, 1px 0 0 #98b5cc,
+
+    0 1px 0 #98b5cc, 2px 1px 0 #98b5cc, 1px 2px 0 #98b5cc, 3px 2px 0 #98b5cc,
+  2px 3px 0 #98b5cc, 4px 3px 0 #98b5cc, 4px 3px 0 #98b5cc, 5px 4px 0 #98b5cc,
+  4px 5px 0 #98b5cc,
   }
 
   h4 {
@@ -103,6 +129,13 @@
     line-height: 24px;
   }
 
+  .acImage {
+    background-image: url("../assets/fan.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+  }
+
   button {
     -webkit-border-radius: 14;
     -moz-border-radius: 14;
@@ -115,7 +148,6 @@
     padding: 14px 30px 14px 30px;
     text-decoration: none;
     transition: all .5s;
-    transition-timing-function: cubic-bezier(0.42,0,0.58,1);
   }
 
   button:hover {

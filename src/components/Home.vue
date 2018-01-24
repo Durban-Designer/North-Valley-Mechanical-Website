@@ -72,6 +72,12 @@
     list-style: none;
     font-weight: bold;
     letter-spacing: 1px;
+    padding: 0;
+  }
+
+  li {
+    border-top: .5px dashed @nvmgrey;
+    padding: 5px 0 5px 10px;
   }
 
   p {
