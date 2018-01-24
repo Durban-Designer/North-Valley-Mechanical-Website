@@ -140,7 +140,7 @@
     font-weight: bold;
     color: #fff;
     font-size: 1em;
-    background: linear-gradient(#e21b3c, #b20938);\
+    background: linear-gradient(#e21b3c, #b20938);
     padding: 14px 30px 14px 30px;
     width: 250px;
     text-decoration: none;
