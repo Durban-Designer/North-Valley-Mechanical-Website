@@ -42,11 +42,11 @@
 </script>
 
 <style scoped lang="less">
-
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
   @nvmlightred: #e21b3c;
+
   .main {
     height: 500px;
     width: 100%;
@@ -68,8 +68,7 @@
 
   h3 {
     color: @nvmlightred;
-    background: transparent;
-    font-size: 2em;
+    background-color: transparent;
   }
 
   button{
@@ -89,10 +88,9 @@
     align-items: center;
     color: #fff;
     height: 50px;
-    background-color: #b20938;
     margin-top: 20px;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.4em;
     margin-left: 5%;
   }
 
