@@ -16,10 +16,17 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmgrey: #dae5ed;
+@nvmblue: #005389;
+@nvmred: #b20938;
 .main {
   height: 500px;
   width: 100%;
   margin-top: 120px;
+}
+h1 {
+  color: @nvmred;
+  text-align: center;
 }
 button {
   background-color: #005389;
