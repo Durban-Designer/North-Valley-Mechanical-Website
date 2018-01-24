@@ -63,12 +63,13 @@
 
   h2 {
     font-size: 3em;
-    color: @nvmBlue;
+    color: @nvmRed;
     margin: 0;
     padding: 0 15px;
   }
 
   h4 {
+    color: @nvmBlue;
     margin: 0;
     padding: 0 15px;
     padding-top: 50px;
