@@ -34,6 +34,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import Day from './Day'
   import AppointmentSet from './AppointmentSet'
 
@@ -59,7 +60,18 @@
           { monthNum: 9, month: 'October', days: 31, startingDay: 'sunday' },
           { monthNum: 10, month: 'November', days: 30, startingDay: 'wednesday' },
           { monthNum: 11, month: 'December', days: 31, startingDay: 'friday' }],
+        appointments: [{}],
         appointment: [],
+        activeAppointment: {
+          name: '',
+          contactTime: '',
+          customerType: '',
+          timeStart: '',
+          timeEnd: '',
+          date: '',
+          type: '',
+          message: ''
+        },
         month: '',
         monthNum: 0,
         dayNum: 0,
@@ -85,6 +97,23 @@
       vue.dayPopulate()
     },
     methods: {
+      appointmentsPopulate () {
+        let vue = this
+        axios.get('http://13.57.57.81:81/appointments' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.user.token }})
+          .then(function (response) {
+            vue.appointment.userId = response.data[0].userId
+            vue.appointment.contactTime = response.data[0].contactTime
+            vue.appointment.timeStart = response.data[0].timeStart
+            vue.appointment.timeEnd = response.data[0].timeEnd
+            vue.appointment.date = response.data[0].date
+            vue.appointment.type = response.data[0].type
+            vue.appointment.message = response.data[0].message
+            console.log(response.data)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       dayPopulate () {
         let vue = this
         let i = 0
@@ -433,8 +462,8 @@
 
   /* Month list */
   .month ul {
-      margin: 0;
-      padding: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .month ul li {

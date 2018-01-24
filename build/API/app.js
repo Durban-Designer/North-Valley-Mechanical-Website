@@ -7,8 +7,8 @@ var router = express.Router();
 var path = __dirname + "/views/";
 require("./user");
 var users = require("./users.js");
-require("./message");
-var messages = require("./messages.js");
+require("./appointment");
+var appointments = require("./appointments.js");
 
 mongoose.Promise = global.Promise;
 
@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 })
 
 app.use("/users", users);
-app.use("/messages", messages);
+app.use("/appointments", appointments);
 
 router.get("/", (req,res) => {
   res.sendFile(path + "index.html");

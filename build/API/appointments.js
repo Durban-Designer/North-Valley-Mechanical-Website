@@ -8,6 +8,7 @@ var jwt = require('jsonwebtoken');
 var app = express();
 var router = express.Router();
 var mongoose = require("mongoose");
+var User = mongoose.model("User");
 var Appointment = mongoose.model("Appointment");
 var bcrypt = require('bcryptjs');
 var ExtractJwt = passportJWT.ExtractJwt;
@@ -31,28 +32,18 @@ var strategy = new JwtStrategy(jwtOptions, function(jwt_payload, next) {
   });
 });
 
-app.use(passport.initialize());
-passport.use(strategy);
 app.use(bodyParser.json());
 
 router.post("/", (req,res) => {
   var newAppointment = new Appointment({
-  name: req.body.name,
-  address: req.body.address,
-  addressTwo: req.body.addressTwo,
-  city: req.body.city,
-  state: req.body.state,
-  zip: req.body.zip,
-  country: req.body.country,
-  email: req.body.email,
-  phone: req.body.phone,
+  userId: req.body.userId,
   contactTime: req.body.contactTime,
   customerType: req.body.customerType,
   timeStart: req.body.timeStart,
   timeEnd: req.body.timeEnd,
   date: req.body.date,
   type: req.body.type,
-  comment: req.body.comment
+  message: req.body.message
   })
 
   newAppointment.save((err, result) => {
@@ -108,27 +99,19 @@ router.get("/id/:id", passport.authenticate('jwt', { session: false }),(req, res
 
 router.put("/:id", passport.authenticate('jwt', { session: false }),(req, res) => {
   var appointmentid = new mongodb.ObjectID(req.params["id"]);
-  Appointment.find({"_id": leadid},function (err, lead) {
+  Appointment.find({"_id": appointmentid},function (err, appointment) {
     if (err) {
         res.status(500).send(err);
     } else {
         var appointment = appointment[0];
-        appointment.name = req.body.name || appointment.name;
-        appointment.address = req.body.address || appointment.address;
-        appointment.addressTwo = req.body.addressTwo || appointment.addressTwo;
-        appointment.city = req.body.city || appointment.city;
-        appointment.state = req.body.state || appointment.state;
-        appointment.zip = req.body.zip || appointment.zip;
-        appointment.country = req.body.country || appointment.country;
-        appointment.email = req.body.email || appointment.email;
-        appointment.phone = req.body.phone || appointment.phone;
+        appointment.userId = req.body.userId || appointment.userId;
         appointment.contactTime = req.body.contactTime || appointment.contactTime;
         appointment.customerType = req.body.customerType || appointment.customerType;
         appointment.timeStart = req.body.timeStart || appointment.timeStart;
         appointment.timeEnd = req.body.timeEnd || appointment.timeEnd;
         appointment.date = req.body.date || appointment.date;
         appointment.type = req.body.type || appointment.type;
-        appointment.comment = req.body.comment || appointment.comment;
+        appointment.message = req.body.message || appointment.message;
 
         appointment.save(function (err, appointment) {
             if (err) {

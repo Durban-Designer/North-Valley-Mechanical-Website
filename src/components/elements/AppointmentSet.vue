@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <h4>New Appointment for </h4>
-    <input class="time" v-model="time" placeholder="best time to contact"></input>
+    <input class="time" v-model="contactTime" placeholder="best time to contact"></input>
     <select class="typeSelect" v-model="type">
       <option value="service">Service</option>
       <option value="replacement">Replacement</option>
@@ -28,7 +28,16 @@
         description: '',
         edit: false,
         editToggle: false,
-        appointment: [],
+        appointment: [{
+          name: '',
+          contactTime: '',
+          customerType: '',
+          timeStart: '',
+          timeEnd: '',
+          date: '',
+          type: '',
+          message: ''
+        }],
         newAppointments: [{ timeStart: 'twelveAm', timeEnd: 'twelveAm', title: '', description: '', type: 'personal' }]
       }
     },
@@ -65,7 +74,7 @@
 
 <style scoped lang="less">
   @yellow: #f4c20d;
-  
+
   .main {
     width: 100%;
     height: 100%;

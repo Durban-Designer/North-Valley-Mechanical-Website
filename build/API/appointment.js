@@ -1,46 +1,10 @@
 var mongoose = require("mongoose");
 var AppointmentSchema = new mongoose.Schema({
-  name: {
+  userId: {
     type: String,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  addressTwo: {
-    type: String,
-    required: true
-  },
-  city: {
-    type: String,
-    required: true
-  },
-  state: {
-    type: String,
-    required: true
-  },
-  zip: {
-    type: Number,
-    required: true
-  },
-  country: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  phone: {
-    type: Number,
     required: true
   },
   contactTime: {
-    type: String,
-    required: true
-  },
-  customerType: {
     type: String,
     required: true
   },
@@ -60,7 +24,7 @@ var AppointmentSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  comment: {
+  message: {
     type: String,
     required: false
   }
