@@ -18,7 +18,7 @@
   <div class="Message" v-on:click="modal='mess'">Send a Message</div>
   <div class="Quote" v-on:click="modal='qte'">Request a Quote</div>
 </div>
-  <h2>480-538-9184</h2>
+  <h2>(480)-538-9184</h2>
   </div>
 </template>
 
@@ -35,16 +35,24 @@ export default {
 </script>
 
 <style scoped lang="less">
+@nvmgrey: #dae5ed;
+@nvmblue: #005389;
+@nvmred: #b20938;
 .main {
   height: 500px;
   width: 100%;
   margin-top: 120px;
+}
+h1 {
+  color: @nvmred;
+  text-align: center;
 }
 h2 {
   color: #005da6;
   margin-top: 200px;
   width: 100%;
   text-align: center;
+  font-size: 3em;
 }
 button{
   background: #b20938;
@@ -68,6 +76,7 @@ button{
   width: 100%;
   height: 50px;
   background-color: #b20938;
+  line-height: 50px;
 
 }
 .Message {
@@ -75,12 +84,14 @@ button{
   height: 50px;
   background-color: #b20938;
   margin-top: 20px;
+  line-height: 50px;
 }
 .Quote {
   width: 100%;
   height: 50px;
   background-color: #b20938;
   margin-top: 20px;
+  line-height: 50px;
 }
 @media (min-width: 700px) {
 }

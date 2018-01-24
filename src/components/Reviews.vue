@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <h1>Reviews</h1>
-    <iframe width="100%" height="320px" src="https://www.youtube.com/embed/3nN_SIpQjc0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe width="90%" height="250px" src="https://www.youtube.com/embed/3nN_SIpQjc0" frameborder="0" allowfullscreen></iframe>
     <h2>Testimonials</h2>
     <p>“Kelly and I would like to once again thank Kirk, Kendra and all the guys who performed so admirably on our recent AC project. The house is comfortable and we are very happy. Thanks NVM for being so meticulous, professional, and honest. You all went above and beyond to make sure that the job was done properly and we really appreciate the outstanding service and the grueling work you all had to do. I will strongly recommend NVM to anyone I encounter that is in need of AC service.” – K. Laughlin</p>
     <p>“Thank you for having the type of professional people that I know I can call any time and get the kind of service I had anticipated.”- B. Klatt</p>
@@ -30,6 +30,10 @@ export default {
   width: 100%;
   margin-top: 120px;
 }
+h1 {
+  color: @nvmred;
+  text-align: center;
+}
 h2 {
   color: #005389;
   text-align: center;
@@ -50,6 +54,9 @@ button {
   background-color: @nvmred;
   color: #fff;
   border: none;
+  margin-left: 5%;
+}
+iframe {
   margin-left: 5%;
 }
 @media (min-width: 700px) {
