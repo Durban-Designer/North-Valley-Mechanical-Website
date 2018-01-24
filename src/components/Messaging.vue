@@ -5,17 +5,17 @@
 </template>
 
 <script>
-export default {
-  name: 'messaging',
-  props: ['logged', 'user'],
-  data () {
-    return {}
+  export default {
+    name: 'messaging',
+    props: ['logged', 'user'],
+    data () {
+      return {}
+    }
   }
-}
 </script>
 
 <style scoped lang="less">
-.main {
-  margin-top: 120px;
-}
+  .main {
+    margin-top: 120px;
+  }
 </style>

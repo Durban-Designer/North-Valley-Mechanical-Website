@@ -27,7 +27,7 @@ export default new VueRouter({
   routes: [
     { path: '/', component: load('Home') },
     { path: '/Reviews', component: load('Reviews') },
-    { path: '/Leavereview', component: load('Leavereview') },
+    { path: '/LeaveReview', component: load('LeaveReview') },
     { path: '/services', component: load('Services') },
     { path: '/contact', component: load('Contact') },
     { path: '/Login', component: load('Login') },
