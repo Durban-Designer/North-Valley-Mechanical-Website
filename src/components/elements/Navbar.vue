@@ -120,7 +120,7 @@
     width: 100%;
     height: 400px;
     margin-top: 1px;
-    background: #b20938;
+    background: linear-gradient(#e21b3c, #b20938);
     color: #fff;
     outline: solid 1px ;
     outline-color: #fff;

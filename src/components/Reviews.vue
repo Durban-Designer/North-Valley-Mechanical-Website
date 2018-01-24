@@ -43,15 +43,15 @@ export default {
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
-
+  @nvmlightred: #e21b3c;
   .main {
     height: 2000px;
     width: 100%;
     margin-top: 120px;
   }
-  
+
   h1 {
-    color: @nvmred;
+    color: @nvmlightred;
     text-align: center;
   }
 
@@ -81,7 +81,7 @@ export default {
   }
 
   .leavereview {
-    background-color: @nvmblue;
+    background: linear-gradient(#005DA6, #014271);
   }
 
   iframe {

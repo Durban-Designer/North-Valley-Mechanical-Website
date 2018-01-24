@@ -42,10 +42,11 @@
 </script>
 
 <style scoped lang="less">
+
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
-
+  @nvmlightred: #e21b3c;
   .main {
     height: 500px;
     width: 100%;
@@ -53,7 +54,7 @@
   }
 
   h1 {
-    color: @nvmred;
+    color: @nvmlightred;
     text-align: center;
   }
 
@@ -65,12 +66,13 @@
     font-size: 1.5em;
   }
   h3 {
-    color: @nvmred;
+    color: @nvmlightred;
     background: transparent;
+    font-size: 2em;
   }
 
   button{
-    background: #b20938;
+    background: linear-gradient(#e21b3c, #b20938);
     color: #fff;
     border: none;
     font-size: 1.5em;
@@ -95,14 +97,14 @@
   .Appt {
     width: 100%;
     height: 50px;
-    background-color: #b20938;
+    background: linear-gradient(#e21b3c, #b20938);
     line-height: 50px;
   }
 
   .Message {
     width: 100%;
     height: 50px;
-    background-color: #b20938;
+    background: linear-gradient(#e21b3c, #b20938);
     margin-top: 20px;
     line-height: 50px;
   }
@@ -110,7 +112,7 @@
   .Quote {
     width: 100%;
     height: 50px;
-    background-color: #b20938;
+    background: linear-gradient(#e21b3c, #b20938);
     margin-top: 20px;
     line-height: 50px;
   }

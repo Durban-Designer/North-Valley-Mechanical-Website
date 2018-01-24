@@ -187,13 +187,14 @@
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
+  @nvmlightred: #e21b3c;
 
   .main {
     margin-top: 120px;
   }
 
   h1 {
-    color: @nvmred;
+    color: @nvmlightred;
     text-align: center;
   }
 
@@ -216,7 +217,7 @@
   }
 
   button {
-    background-color: @nvmred;
+    background: linear-gradient(#e21b3c, #b20938);
     border: none;
     color: #fff;
     font-size: 2em;

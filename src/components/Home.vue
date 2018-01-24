@@ -15,7 +15,7 @@
       of experience in providing quality service in the Phoenix area. When you hire us,
       you can rest easy knowing you will receive exceptional service in a timely fashion.
     </p>
-    <h2 class="link" v-on:click="$router.push('/contact')" >Click here to schedule an appointment today!</h2>
+    <h2 class="link" v-on:click="$router.push('/contact')">Click here to schedule an appointment!</h2>
   </div>
 </template>
 
@@ -39,7 +39,7 @@
   @nvmgrey: #dae5ed;
   @nvmblue: #005389;
   @nvmred: #b20938;
-
+  @nvmlightred: #e21b3c;
   .main {
     height: 1200px;
     width: 100%;
@@ -85,6 +85,13 @@
     border: 1px dashed black;
   }
 
+  .link {
+    font-size: 1.5em;
+    color: @nvmlightred;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
   @media (min-width: 700px) {
   }
 </style>

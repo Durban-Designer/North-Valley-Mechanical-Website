@@ -89,7 +89,7 @@
     font-family: arial black;
     color: #ffffff;
     font-size: 1em;
-    background: @nvmRed;
+    background: linear-gradient(#e21b3c, #b20938);
     margin: 0 1em;
     padding: 14px 30px 14px 30px;
     text-decoration: none;
