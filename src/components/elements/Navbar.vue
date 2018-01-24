@@ -181,6 +181,7 @@
 .Login {
   background-color: transparent;
   width: 100%;
+  background-color: transparent;
   border: none;
   color: #fff;
   font-size: 2.5em;
@@ -223,6 +224,12 @@
 }
 
 @media (min-width: 700px) {
+=======
+  @nvmgrey: #dae5ed;
+  @nvmblue: #005389;
+  @nvmred: #b20938;
+
+>>>>>>> 9ab239ff774dc7d9d4036b75a15fc41aae05f537
   .navpane {
     display: none;
     overflow: hidden;
