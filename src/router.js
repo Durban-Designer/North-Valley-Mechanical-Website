@@ -35,6 +35,9 @@ export default new VueRouter({
     { path: '/Account', component: load('Account') },
     { path: '/Specials', component: load('Specials') },
     { path: '/Messaging', component: load('Messaging') },
+    { path: '/Schedule', component: load('Schedule') },
+    { path: '/Day', component: load('Day') },
+    { path: '/AppointmentSet', component: load('AppointmentSet') },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]

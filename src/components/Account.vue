@@ -172,48 +172,53 @@ export default {
 </script>
 
 <style scoped lang="less">
-@nvmgrey: #dae5ed;
-@nvmblue: #005389;
-@nvmred: #b20938;
-.main {
-  margin-top: 120px;
-}
-h1 {
-  color: @nvmred;
-  text-align: center;
-}
-h2 {
-  font-size: 2em;
-  background-color: @nvmgrey;
-  padding-left: 5%;
+  @nvmgrey: #dae5ed;
+  @nvmblue: #005389;
+  @nvmred: #b20938;
+  
+  .main {
+    margin-top: 120px;
+  }
 
-}
-input {
-  width: 90%;
-  font-size: 1.5em;
-  background-color: @nvmgrey;
-  padding-left: 5%;
-  margin-left: 5%;
-}
-select option[data-default] {
-  color: #888;
-}
-button {
-  background-color: @nvmred;
-  border: none;
-  color: #fff;
-  font-size: 2em;
-  width: 90%;
-  margin-bottom: 20px;
-  margin-left: 5%;
-}
+  h1 {
+    color: @nvmred;
+    text-align: center;
+  }
 
-.accountEditButton {
-  margin-bottom: 40px;
-  background-color: @nvmblue;
+  h2 {
+    font-size: 2em;
+    background-color: @nvmgrey;
+    padding-left: 5%;
+  }
 
-}
-.submitEdit {
-  background-color: @nvmblue;
-}
+  input {
+    width: 90%;
+    font-size: 1.5em;
+    background-color: @nvmgrey;
+    padding-left: 5%;
+    margin-left: 5%;
+  }
+
+  select option[data-default] {
+    color: #888;
+  }
+
+  button {
+    background-color: @nvmred;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: 5%;
+  }
+
+  .accountEditButton {
+    margin-bottom: 40px;
+    background-color: @nvmblue;
+  }
+
+  .submitEdit {
+    background-color: @nvmblue;
+  }
 </style>
