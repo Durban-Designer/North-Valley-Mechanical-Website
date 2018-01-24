@@ -129,17 +129,7 @@ export default {
   animation: navpaneAnimationReverse .3s steps(9);
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  z-index: 10;
-  width: 100%;
-  height: 400px;
-  margin-top: 15px;
-  background: #b20938;
-  color: #fff;
-  outline: solid 2px ;
-  outline-color: #fff;
-  outline-offset: -6px;
+  display: none;
 }
 
 .navpaneAnimationExit button {
@@ -203,7 +193,7 @@ export default {
 
 @keyframes navpaneAnimationReverse {
   0% { opacity: 1; }
-  100% { opacity: 0;}
+  100% { opacity: 0; display: none;}
 }
 
 @keyframes navButtonAnimation {

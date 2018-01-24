@@ -34,9 +34,19 @@
       <input class="addressOneRegister" v-model="activeUser.address1" placeholder="Address One"></input>
       <input class="addressTwoRegister" v-model="activeUser.address2" placeholder="Address Two"></input>
       <input class="emailRegister" v-model="activeUser.email" placeholder="user@example.com"></input>
+      <input class="passwordRegister" v-model="activeUser.password" placeholder="*********" type="password" v-if="!showPass">
+      <input class="passwordRegister" v-model="activeUser.password" placeholder="*********" v-if="showPass">
+      <button class="togglePass" v-on:click="showPass = !showPass" v-if="!showPass">Show Password</button>
+      <button class="togglePass" v-on:click="showPass = !showPass" v-if="showPass">Hide Password</button>
+      <button class="submitRegister" v-on:click="registerUser">Submit</button>
+    </div>
+    <div class="success" v-else-if="modal==='success'">
+      <h1>Success!!</h1>
+      <button class="back" v-on:click="modal=''">Back</button>
     </div>
     <div class="accountHome" v-else>
       <h1>Account</h1>
+      <button class="registerEmployeeButton" v-on:click="modal='register'" v-if="user.role === 'employee'">Register Employee</button>
       <button class="accountViewButton" v-on:click="modal='view'; populateActiveUser()">View Account</button>
       <button class="logout" v-on:click="$emit('logout')">Log Out</button>
     </div>
@@ -51,8 +61,10 @@ export default {
   data () {
     return {
       modal: '',
+      showPass: false,
       activeUser: {
         email: '',
+        password: '',
         role: '',
         firstName: '',
         middleName: '',
@@ -108,6 +120,26 @@ export default {
           vue.activeUser.phone = response.data.phone
           vue.activeUser.address1 = response.data.address1
           vue.activeUser.address2 = response.data.address2
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
+    registerUser () {
+      let vue = this
+      axios.post('http://13.57.57.81:81/users', {
+        email: vue.activeUser.email,
+        password: vue.activeUser.password,
+        role: 'employee',
+        firstName: vue.activeUser.firstName,
+        middleName: vue.activeUser.middleName,
+        lastName: vue.activeUser.lastName,
+        phone: vue.activeUser.phone,
+        address1: vue.activeUser.address1,
+        address2: vue.activeUser.address2
+      })
+        .then(function () {
+          vue.modal = 'success'
         })
         .catch(function (error) {
           console.log(error)
