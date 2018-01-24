@@ -29,6 +29,9 @@ export default new VueRouter({
     { path: '/about', component: load('About') },
     { path: '/services', component: load('Services') },
     { path: '/contact', component: load('Contact') },
+    { path: '/schedule', component: load('Schedule') },
+    { path: '/day', component: load('Day') },
+    { path: '/appointmentSet', component: load('AppointmentSet') },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]
