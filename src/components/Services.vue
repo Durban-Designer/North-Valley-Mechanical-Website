@@ -22,9 +22,9 @@
       </p>
       <button class="requestQuote">REQUEST A QUOTE NOW</button>
     </div>
-    <div class="heating" v-if="modal==='hot'">
+    <div class="heating" v-else-if="modal==='hot'">
     </div>
-    <div class="maintenance" v-if="modal==='maintenance'">
+    <div class="maintenance" v-else-if="modal==='maintenance'">
     </div>
     <div class="services" v-else>
       <h1>Services</h1>
@@ -38,7 +38,7 @@
     props: ['logged', 'user'],
     data () {
       return {
-        modal: ''
+        modal: 'cool'
       }
     }
   }
