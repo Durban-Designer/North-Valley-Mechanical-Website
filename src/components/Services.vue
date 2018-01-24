@@ -89,13 +89,10 @@
   }
 
   button {
-    margin-left: 17%;
     font-weight: bold;
     color: #fff;
     font-size: 1em;
     background: linear-gradient(#e21b3c, #b20938);
-    padding: 14px 30px 14px 30px;
-    width: 250px;
     text-decoration: none;
     transition: all .5s;
     transition-timing-function: cubic-bezier(0.42,0,0.58,1);
@@ -104,12 +101,14 @@
   button:hover {
     background: @nvmGrey;
     color: @nvmRed;
-    border-color: @nvmRed;
+    border: 1px solid @nvmRed;
     text-decoration: none;
   }
 
   .requestQuote {
-    margin-top: 30px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 1em 0;
   }
 
   @media (min-width: 700px) {
