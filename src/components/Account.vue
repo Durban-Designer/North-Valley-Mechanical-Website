@@ -54,10 +54,14 @@
       <h1>Success!!</h1>
       <button class="back" v-on:click="modal=''">Back</button>
     </div>
+    <units class="units" v-on:back="modal=''" v-else-if="modal==='units'"></units>
+    <job class="job" v-on:back="modal=''" v-else-if="modal==='job'"></job>
     <div class="accountHome" v-else>
       <h1>Account</h1>
       <button class="registerEmployeeButton" v-on:click="modal='register'; clearActiveUser()" v-if="user.role === 'employee'">Register Employee</button>
       <button class="accountViewButton" v-on:click="modal='view'; populateActiveUser()">View Account</button>
+      <button class="unitViewButton" v-on:click="modal='units'">View HVAC Units</button>
+      <button class="jobViewButton" v-on:click="modal='job'">View Pending Job</button>
       <button class="logout" v-on:click="$emit('logout')">Log Out</button>
     </div>
   </div>
@@ -65,10 +69,16 @@
 
 <script>
   import axios from 'axios'
+  import job from './elements/Job'
+  import units from './elements/Units'
 
   export default {
     name: 'account',
     props: ['logged', 'user'],
+    components: {
+      'units': units,
+      'job': job
+    },
     data () {
       return {
         modal: '',
