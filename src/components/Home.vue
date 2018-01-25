@@ -40,7 +40,7 @@
   @nvmblue: #005389;
   @nvmred: #b20938;
   @nvmlightred: #e21b3c;
-  
+
   .main {
     height: 1200px;
     width: 100%;

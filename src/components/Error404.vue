@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1>Error 404</h1>
+    <div class="load"></div>
   </div>
 </template>
 
@@ -15,6 +15,11 @@
 
 <style scoped lang="less">
   .main {
-    margin-top: 120px;
+    margin-top: 600px;
+  }
+
+  .load {
+    background-image: url("../assets/loadFan.svg");
+    background-repeat: no-repeat;
   }
 </style>
