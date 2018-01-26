@@ -84,6 +84,7 @@
         modal: '',
         showPass: false,
         activeUser: {
+          id: '',
           email: '',
           password: '',
           role: '',
