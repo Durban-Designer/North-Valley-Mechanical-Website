@@ -9,12 +9,14 @@
     <input class="message" v-model="appointment.message" placeholder="Message"></input>
     <div class="success" v-if="success"></div>
     <div class="error" v-else-if="error"></div>
-    <div v-on:click="appointmentSave" class="save" v-else>Save</div>
+    <div v-on:click="submitAppointment" class="save" v-else>Save</div>
     <div v-on:click="cancel" class="cancel">Cancel</div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'appointmentSet',
     props: ['appointmentProp', 'editable'],
@@ -39,7 +41,7 @@
           type: '',
           message: ''
         }],
-        newAppointments: [{ timeStart: 'twelveAm', timeEnd: 'twelveAm', title: '', description: '', type: 'personal' }]
+        newAppointments: [{}]
       }
     },
     created () {
@@ -68,6 +70,26 @@
       },
       cancel: function () {
         this.$emit('backAppointment')
+      },
+      submitAppointment () {
+        let vue = this
+        axios.post('http://13.57.57.81:81/appointments', {
+          userId: vue.appointment.userId,
+          contactTime: vue.appointment.contactTime,
+          timeStart: vue.appointment.timeStart,
+          timeEnd: vue.appointment.timeEnd,
+          date: vue.appointment.date,
+          type: vue.appointment.type,
+          message: vue.appointment.message
+        })
+          .then(function () {
+            vue.edit = false
+            vue.leadbox = true
+            vue.newLead = false
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     }
   }

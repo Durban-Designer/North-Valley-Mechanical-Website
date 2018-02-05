@@ -60,8 +60,12 @@
           { monthNum: 9, month: 'October', days: 31, startingDay: 'sunday' },
           { monthNum: 10, month: 'November', days: 30, startingDay: 'wednesday' },
           { monthNum: 11, month: 'December', days: 31, startingDay: 'friday' }],
-        appointments: [{}],
-        appointment: [],
+        appointment: [
+          { month: 'January' },
+          { appointments: [
+            {timeStart: 'nineAm', date: '27'},
+            {timeStart: 'twoPm', date: '27'},
+            {timeStart: 'nineAm', date: '28'} ]}],
         activeAppointment: {
           name: '',
           contactTime: '',

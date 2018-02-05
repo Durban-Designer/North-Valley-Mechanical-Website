@@ -15,7 +15,7 @@
     </div>
     <div class="tiles" v-else>
       <h3>Contact Us</h3>
-      <div class="Appt" v-on:click="modal='appt'">Make an Appointment</div>
+      <div class="Appt" v-on:click="modal='appt'">Appointment</div>
       <div class="Message" v-on:click="modal='mess'">Send a Message</div>
       <div class="Quote" v-on:click="modal='qte'">Request a Quote</div>
       <h2>(480)-538-9184</h2>
